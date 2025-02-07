@@ -119,7 +119,7 @@ export default function Portfolio() {
             </Link>
 
             <Link 
-              href="/portfolio/minimally-invasive-treatments"
+              href="/portfolio/minimally-invasive-dental-treatments"
               className="group cursor-pointer h-full"
             >
               <article
