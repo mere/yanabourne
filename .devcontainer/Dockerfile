@@ -1,0 +1,11 @@
+ARG VARIANT=22-bookworm
+FROM node:${VARIANT}
+
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+
+ENV COREPACK_INTEGRITY_KEYS=0
+RUN corepack enable
+RUN corepack prepare pnpm@latest --activate
