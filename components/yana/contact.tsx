@@ -147,7 +147,7 @@ export default function CtaDark() {
                   work, want to explore working together, or just want to say
                   hello - I'd love to hear from you!
                 </p>
-                <div className="relative w-42 h-42 mx-auto">
+                <div className="relative w-42 h-42 mx-auto my-4">
                   <Image 
                     src="/images/yana/yana.png"
                     alt="Yana"
