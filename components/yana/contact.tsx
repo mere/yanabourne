@@ -1,7 +1,44 @@
 import Link from "next/link";
 import Logo from "../ui/logo";
+import { useState } from "react";
 
 export default function CtaDark() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="bg-slate-900" id="contact">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -11,80 +48,89 @@ export default function CtaDark() {
 
             {/* Grid container */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              {/* Form */}
-              <form 
-                name="contact"
-                data-netlify="true"
-                className="w-full"
-              >
-                {/* Hidden input required for Netlify Forms with JS frameworks */}
-                <input type="hidden" name="form-name" value="contact" />
-                
-                <div className="flex flex-wrap -mx-3 mb-4">
-                  <div className="w-full px-3">
-                    <label
-                      className="block text-left text-slate-300 text-sm font-medium mb-1"
-                      htmlFor="name"
-                    >
-                      Name <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
-                      placeholder="Enter your name"
-                      required
-                    />
-                  </div>
+              {submitStatus === 'success' ? (
+                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                  <h3 className="font-bold">Thank you for your message!</h3>
+                  <p>I'll get back to you as soon as possible.</p>
                 </div>
-                <div className="flex flex-wrap -mx-3 mb-4">
-                  <div className="w-full px-3">
-                    <label
-                      className="block text-left text-slate-300 text-sm font-medium mb-1"
-                      htmlFor="email"
-                    >
-                      Email <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
-                      placeholder="Enter your email"
-                      required
-                    />
+              ) : (
+                <form 
+                  onSubmit={handleSubmit}
+                  className="w-full"
+                >
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label
+                        className="block text-left text-slate-300 text-sm font-medium mb-1"
+                        htmlFor="name"
+                      >
+                        Name <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-wrap -mx-3 mb-4">
-                  <div className="w-full px-3">
-                    <label
-                      className="block text-left text-slate-300 text-sm font-medium mb-1"
-                      htmlFor="message"
-                    >
-                      Message <span className="text-red-600">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="form-textarea w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
-                      placeholder="Write your message"
-                      required
-                    ></textarea>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label
+                        className="block text-left text-slate-300 text-sm font-medium mb-1"
+                        htmlFor="email"
+                      >
+                        Email <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-wrap -mx-3 mt-6">
-                  <div className="w-full px-3">
-                    <button
-                      type="submit"
-                      className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
-                    >
-                      Send Message
-                    </button>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label
+                        className="block text-left text-slate-300 text-sm font-medium mb-1"
+                        htmlFor="message"
+                      >
+                        Message <span className="text-red-600">*</span>
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        className="form-textarea w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
+                        placeholder="Write your message"
+                        required
+                      ></textarea>
+                    </div>
                   </div>
-                </div>
-              </form>
+                  <div className="flex flex-wrap -mx-3 mt-6">
+                    <div className="w-full px-3">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="btn text-white bg-blue-600 hover:bg-blue-700 w-full disabled:opacity-50"
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {submitStatus === 'error' && (
+                    <div className="mt-4 text-red-500 text-sm">
+                      Failed to send message. Please try again.
+                    </div>
+                  )}
+                </form>
+              )}
 
               {/* Text content */}
               <div>
