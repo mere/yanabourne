@@ -31,9 +31,9 @@ export default function Header({ mode = 'dark' }: {
               <li>
                 <Link href="#locations" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Locations</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="#certificates" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Certificates</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="#portfolio" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Portfolio</Link>
               </li>

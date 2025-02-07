@@ -31,7 +31,7 @@ export default function Footer() {
           </ul>
 
           {/* Copyrights note */}
-          <Logo title="Yana Bourne" />
+          <Logo />
           <div className="text-sm text-slate-500 mr-4">© yanabourne.com. All rights reserved.</div>
 
         </div>
