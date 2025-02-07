@@ -16,7 +16,7 @@ export default async function handler(
       apiKey: process.env.MAILERSEND_API_KEY!,
     });
 
-    const recipients = [new Recipient("yanabourne@bourne.cc", "Yana Bourne")];
+    const recipients = [new Recipient("form@yanabourne.com", "Yana Bourne")];
     const replyTo = new Recipient(email, name);
 
     const emailParams = new EmailParams()

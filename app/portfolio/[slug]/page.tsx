@@ -14,7 +14,7 @@ async function getPortfolioItem(slug: string) {
   return portfolioItems.find(item => item.slug === slug)
 }
 
-export default async function PortfolioPost({ params }: { params: { slug: string } }) {
+export default async function PortfolioPost({ params }: { params: Promise<{ slug: string }> }) {
   const portfolio = await getPortfolioItem((await params).slug)
 
   if (!portfolio) {
@@ -60,7 +60,6 @@ export default async function PortfolioPost({ params }: { params: { slug: string
               {/* Content */}
               <div className="text-lg text-slate-500 space-y-8">
                 <p>{portfolio.description}</p>
-                <p>{portfolio.details}</p>
               </div>
 
             </article>
