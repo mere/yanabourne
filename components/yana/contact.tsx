@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import Logo from "../ui/logo";
 import { useState } from "react";
