@@ -8,39 +8,6 @@ export default function CtaDark() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      message: formData.get('message'),
-    };
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section className="bg-slate-900" id="contact">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -57,9 +24,10 @@ export default function CtaDark() {
                 </div>
               ) : (
                 <form 
-                  onSubmit={handleSubmit}
+                  name="contact" method="POST" data-netlify="true"
                   className="w-full"
                 >
+                  <input type="hidden" name="form-name" value="contact-form" />
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
