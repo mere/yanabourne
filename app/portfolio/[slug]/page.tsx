@@ -1,13 +1,12 @@
-export const metadata = {
-  title: 'Portfolio Details',
-  description: 'Detailed view of portfolio',
-}
-
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import Gallery from '@/components/yana/gallery'
 
+export const metadata = {
+  title: 'Portfolio Details',
+  description: 'Detailed view of portfolio',
+}
 
 // This would need to be replaced with actual data fetching
 async function getPortfolioItem(slug: string) {
@@ -16,11 +15,12 @@ async function getPortfolioItem(slug: string) {
 }
 
 export default async function PortfolioPost({ params }: { params: { slug: string } }) {
-  const portfolio = await getPortfolioItem(params.slug)
+  const portfolio = await getPortfolioItem((await params).slug)
 
   if (!portfolio) {
     notFound()
   }
+  
 
   return (
     <section className="relative">

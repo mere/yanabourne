@@ -42,7 +42,7 @@ export default function MobileMenu() {
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
       >
         <span className="sr-only">Menu</span>
-        <svg className="w-6 h-6 fill-current text-slate-900 dark:text-slate-100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-6 h-6 text-slate-200 dark:text-slate-100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <rect y="4" width="24" height="2" />
           <rect y="11" width="24" height="2" />
           <rect y="18" width="24" height="2" />
@@ -64,18 +64,32 @@ export default function MobileMenu() {
               <Link href="#about" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>About</Link>
             </li>
             <li>
-              <Link href="#specialties" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Specialties</Link>
-            </li>
-            <li>
               <Link href="#locations" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Locations</Link>
             </li>
             {/* <li>
               <Link href="#certificates" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Certificates</Link>
             </li> */}
-            <li>
-              <Link href="#portfolio" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Portfolio</Link>
+            <li className="border-t border-slate-200 mt-2 pt-2">
+              <span className="flex font-medium text-slate-800 py-2">Portfolio</span>
+              <ul className="pl-4">
+                <li>
+                  <Link href="/portfolio/complex-endodontic-procedures" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
+                    Complex Endodontic Procedures
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio/advanced-restorative-techniques" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
+                    Advanced Restorative Techniques
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio/minimally-invasive-dental-treatments" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
+                    Minimally Invasive Dental Treatments
+                  </Link>
+                </li>
+              </ul>
             </li>
-            <li>
+            <li className="border-t border-slate-200 mt-2 pt-2">
               <Link href="#contact" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Contact</Link>
             </li>
           </ul>

@@ -29,13 +29,13 @@ export default function Portfolio() {
           <div className="max-w-sm mx-auto md:max-w-none grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
             <Link 
               href="/portfolio/complex-endodontic-procedures"
-              className="group cursor-pointer"
+              className="group cursor-pointer h-full"
             >
               <article
-                className="h-full flex flex-col space-y-5"
+                className="flex flex-col h-full"
                 data-aos="fade-up"
               >
-                <div className="relative">
+                <div className="relative mb-6">
                   <div
                     className="absolute inset-0 pointer-events-none border-2 border-slate-100 -translate-x-2 -translate-y-2 -z-10 rounded-lg"
                     aria-hidden="true"
@@ -53,35 +53,35 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                <div className="grow flex flex-col">
-                  <header>
-                    <h3 className="h4 font-playfair-display mb-3 text-center">
-                      Complex Endodontic Procedures
-                    </h3>
-                  </header>
-                  <p className="text-lg text-slate-500 grow text-center">
+                <div className="flex flex-col h-full">
+                  <h3 className="h4 font-playfair-display mb-4 text-center min-h-16">
+                    Complex Endodontic Procedures
+                  </h3>
+                  <p className="text-lg text-slate-500 text-center mb-6">
                     I specialise in complex endodontic procedures, including root
                     canal treatments and retreatement.
                   </p>
-                </div>
-                <div 
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 mx-auto"
-                >
-                  View Portfolio
+                  <div className="mt-auto flex justify-center">
+                    <div 
+                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+                    >
+                      View Portfolio
+                    </div>
+                  </div>
                 </div>
               </article>
             </Link>
 
             <Link 
               href="/portfolio/advanced-restorative-techniques"
-              className="group cursor-pointer"
+              className="group cursor-pointer h-full"
             >
               <article
-                className="h-full flex flex-col space-y-5"
+                className="flex flex-col h-full"
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <div className="relative">
+                <div className="relative mb-6">
                   <div
                     className="absolute inset-0 pointer-events-none border-2 border-slate-100 -translate-x-2 -translate-y-2 -z-10 rounded-lg"
                     aria-hidden="true"
@@ -99,35 +99,35 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                <div className="grow flex flex-col">
-                  <header>
-                    <h3 className="h4 font-playfair-display mb-3 text-center">
-                      Advanced Restorative Techniques
-                    </h3>
-                  </header>
-                  <p className="text-lg text-slate-500 grow text-center">
+                <div className="flex flex-col h-full">
+                  <h3 className="h4 font-playfair-display mb-4 text-center min-h-16">
+                    Advanced Restorative Techniques
+                  </h3>
+                  <p className="text-lg text-slate-500 text-center mb-6">
                     I specialise in advanced restorative techniques, including
                     dental implants and full mouth rehabilitation.
                   </p>
-                </div>
-                <div 
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 mx-auto"
-                >
-                  View Portfolio
+                  <div className="mt-auto flex justify-center">
+                    <div 
+                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+                    >
+                      View Portfolio
+                    </div>
+                  </div>
                 </div>
               </article>
             </Link>
 
             <Link 
               href="/portfolio/minimally-invasive-treatments"
-              className="group cursor-pointer"
+              className="group cursor-pointer h-full"
             >
               <article
-                className="h-full flex flex-col space-y-5"
+                className="flex flex-col h-full"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <div className="relative">
+                <div className="relative mb-6">
                   <div
                     className="absolute inset-0 pointer-events-none border-2 border-slate-100 -translate-x-2 -translate-y-2 -z-10 rounded-lg"
                     aria-hidden="true"
@@ -145,21 +145,21 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                <div className="grow flex flex-col">
-                  <header>
-                    <h3 className="h4 font-playfair-display mb-3 text-center">
-                      Minimally Invasive Dental Treatments
-                    </h3>
-                  </header>
-                  <p className="text-lg text-slate-500 grow text-center">
+                <div className="flex flex-col h-full">
+                  <h3 className="h4 font-playfair-display mb-4 text-center min-h-16">
+                    Minimally Invasive Dental Treatments
+                  </h3>
+                  <p className="text-lg text-slate-500 text-center mb-6">
                     I specialise in minimally invasive dentistry, including
                     tooth-saving techniques and conservative restorative options.
                   </p>
-                </div>
-                <div 
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 mx-auto"
-                >
-                  View Portfolio
+                  <div className="mt-auto flex justify-center">
+                    <div 
+                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+                    >
+                      View Portfolio
+                    </div>
+                  </div>
                 </div>
               </article>
             </Link>

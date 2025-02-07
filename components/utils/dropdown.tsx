@@ -6,9 +6,10 @@ import { Transition } from '@headlessui/react'
 type DropdownProps = {
   children: React.ReactNode;
   title: string;
+  href?: string;
 };
 
-export default function Dropdown({ children, title }: DropdownProps) {
+export default function Dropdown({ children, title, href }: DropdownProps) {
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
@@ -32,9 +33,18 @@ export default function Dropdown({ children, title }: DropdownProps) {
       onMouseEnter={() => setDropdownOpen(true)}
       onMouseLeave={() => setDropdownOpen(false)}
     >
-      <span className="flex cursor-pointer items-center text-slate-800 dark:text-slate-400 transition">
-        {title}
-      </span>      
+      {href ? (
+        <a 
+          href={href} 
+          className="flex cursor-pointer items-center text-slate-800 dark:text-slate-400 transition"
+        >
+          {title}
+        </a>
+      ) : (
+        <span className="flex cursor-pointer items-center text-slate-800 dark:text-slate-400 transition">
+          {title}
+        </span>
+      )}      
       <button
         aria-expanded={dropdownOpen}
         onClick={handleClick}
