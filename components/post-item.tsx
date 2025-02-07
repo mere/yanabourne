@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import PostDate from '@/components/_local/post-date'
+import PostDate from '@/components/post-date'
 
 export default function PostItem({ ...props }) {
   return (

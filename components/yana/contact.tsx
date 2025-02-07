@@ -12,7 +12,16 @@ export default function CtaDark() {
             {/* Grid container */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               {/* Form */}
-              <form className="w-full">
+              <form 
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                action="/thank-you"
+                className="w-full"
+              >
+                {/* Hidden input required for Netlify Forms with JS frameworks */}
+                <input type="hidden" name="form-name" value="contact" />
+                
                 <div className="flex flex-wrap -mx-3 mb-4">
                   <div className="w-full px-3">
                     <label
@@ -23,6 +32,7 @@ export default function CtaDark() {
                     </label>
                     <input
                       id="name"
+                      name="name"
                       type="text"
                       className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
                       placeholder="Enter your name"
@@ -40,6 +50,7 @@ export default function CtaDark() {
                     </label>
                     <input
                       id="email"
+                      name="email"
                       type="email"
                       className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
                       placeholder="Enter your email"
@@ -57,6 +68,7 @@ export default function CtaDark() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={4}
                       className="form-textarea w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
                       placeholder="Write your message"

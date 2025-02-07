@@ -2,7 +2,7 @@ import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import PostLink from "./link";
 import PostImage from "./image";
-import PostSeparator from "@/components/_local/separator";
+import PostSeparator from "@/components/separator";
 import rehypePrettyCode from "rehype-pretty-code";
 
 const transformToSlug = (input: string) => {
