@@ -14,9 +14,7 @@ export default function CtaDark() {
               {/* Form */}
               <form 
                 name="contact"
-                method="POST"
                 data-netlify="true"
-                action="/thank-you"
                 className="w-full"
               >
                 {/* Hidden input required for Netlify Forms with JS frameworks */}
