@@ -1,0 +1,23 @@
+collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "features"
+        label: "Features Section"
+        file: "content/yana/home-features.json"
+        fields:
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Introduction", name: "introduction", widget: "text" }
+          - label: "Story"
+            name: "story"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Content"
+                name: "content"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" } 
