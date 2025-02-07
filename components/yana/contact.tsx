@@ -2,6 +2,7 @@
 
 import Logo from "../ui/logo";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function CtaDark() {
   const [status, setStatus] = useState<string | null>(null);
@@ -128,7 +129,7 @@ export default function CtaDark() {
 
               {/* Text content */}
               <div>
-                <h2 className="h2 flex font-playfair-display text-slate-100 mb-4 relative">
+                <h2 className="h2 flex text-slate-100 mb-4 relative">
                   Get in touch!
                   <div
                     className=" fill-slate-300 -mt-5 hidden lg:block"
@@ -146,10 +147,19 @@ export default function CtaDark() {
                   work, want to explore working together, or just want to say
                   hello - I'd love to hear from you!
                 </p>
+                <div className="relative w-42 h-42 mx-auto">
+                  <Image 
+                    src="/images/yana/yana.png"
+                    alt="Yana"
+                    width={256}
+                    height={256}
+                    className="rounded-full object-cover w-full h-full border-4 border-slate-600"
+                  />
                 <Logo
                   title="Yana"
-                  className="text-4xl w-full text-right pr-8"
-                />
+                  className="text-4xl w-full text-center"
+                  />
+                  </div>
               </div>
             </div>
           </div>
