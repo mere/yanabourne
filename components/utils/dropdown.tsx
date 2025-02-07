@@ -49,7 +49,7 @@ export default function Dropdown({ children, title }: DropdownProps) {
           ref={dropdownRef}
           show={dropdownOpen}
           as="ul"
-          className="origin-top-right absolute top-full right-0 w-40 bg-white py-2 ml-4 rounded-sm shadow-lg transform transition ease-out data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
+          className="origin-top-right absolute top-full -left-42 w-84 bg-white py-2 ml-4 rounded-sm shadow-lg transform transition ease-out data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
           onBlur={handleFocusOut}
         >
         {children}

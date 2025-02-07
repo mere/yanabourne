@@ -34,9 +34,21 @@ export default function Header({ mode = 'dark' }: {
               {/* <li>
                 <Link href="#certificates" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Certificates</Link>
               </li> */}
-              <li>
+              {/* <li>
                 <Link href="#portfolio" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Portfolio</Link>
-              </li>
+              </li> */}
+              <Dropdown title="Portfolio">
+                {/* 2nd level: hover */}
+                <li>
+                  <Link href="/portfolio/complex-endodontic-procedures" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">Complex Endodontic Procedures</Link>
+                </li>
+                <li>
+                  <Link href="/portfolio/advanced-restorative-techniques" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">Advanced Restorative Techniques</Link>
+                </li>
+                <li>
+                  <Link href="/portfolio/minimally-invasive-dental-treatments" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">Minimally Invasive Dental Treatments</Link>
+                </li>
+              </Dropdown>
               <li>
                 <Link href="#contact" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Contact</Link>
               </li>

@@ -7,8 +7,8 @@ import MoscowIcon from "@/public/images/yana/moscow.svg";
 
 export default function Locations() {
   return (
-    <section className="" id="locations">
-      <div className="max-w-3xl mx-auto text-center mt-24 mb-6">
+    <section className="bg-slate-100" id="locations">
+      <div className="max-w-3xl mx-auto text-center pt-24 mb-6">
         <h2 className="h2 font-playfair-display text-slate-800">Locations</h2>
       </div>
 
