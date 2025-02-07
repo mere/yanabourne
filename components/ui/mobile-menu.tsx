@@ -61,16 +61,16 @@ export default function MobileMenu() {
         >        
           <ul className="px-5 py-2">
             <li>
-              <Link href="#about" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>About</Link>
+              <Link href="/#about" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>About</Link>
             </li>
             <li>
-              <Link href="#locations" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Locations</Link>
+              <Link href="/#locations" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Locations</Link>
             </li>
             {/* <li>
               <Link href="#certificates" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Certificates</Link>
             </li> */}
             <li className="border-t border-slate-200 mt-2 pt-2">
-              <span className="flex font-medium text-slate-800 py-2">Portfolio</span>
+              <Link href="/#portfolio" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Portfolio</Link>
               <ul className="pl-4">
                 <li>
                   <Link href="/portfolio/complex-endodontic-procedures" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
@@ -90,7 +90,7 @@ export default function MobileMenu() {
               </ul>
             </li>
             <li className="border-t border-slate-200 mt-2 pt-2">
-              <Link href="#contact" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Contact</Link>
+              <Link href="/#contact" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Contact</Link>
             </li>
           </ul>
         </Transition>
