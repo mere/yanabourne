@@ -1,12 +1,35 @@
 'use client';
 
-import Link from "next/link";
 import Logo from "../ui/logo";
 import { useState } from "react";
 
 export default function CtaDark() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        try {
+            setStatus('pending');
+            setError(null);
+            const myForm = event.target as HTMLFormElement;
+            const formData = new FormData(myForm);
+            const res = await fetch('/__forms.html', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData as any).toString()
+            });
+            if (res.status === 200) {
+                setStatus('ok');
+            } else {
+                setStatus('error');
+                setError(`${res.status} ${res.statusText}`);
+            }
+        } catch (e) {
+            setStatus('error');
+            setError(`${e}`);
+        }
+    };
 
   return (
     <section className="bg-slate-900" id="contact">
@@ -17,14 +40,15 @@ export default function CtaDark() {
 
             {/* Grid container */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              {submitStatus === 'success' ? (
+              {status === 'ok' ? (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
                   <h3 className="font-bold">Thank you for your message!</h3>
                   <p>I'll get back to you as soon as possible.</p>
                 </div>
               ) : (
                 <form 
-                  name="contact" method="POST" data-netlify="true"
+                  name="contact-form"
+                  onSubmit={handleFormSubmit}
                   className="w-full"
                 >
                   <input type="hidden" name="form-name" value="contact-form" />
@@ -86,15 +110,15 @@ export default function CtaDark() {
                     <div className="w-full px-3">
                       <button
                         type="submit"
-                        disabled={isSubmitting}
+                        disabled={status === 'pending'}
                         className="btn text-white bg-blue-600 hover:bg-blue-700 w-full disabled:opacity-50"
                       >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        {status === 'pending' ? 'Sending...' : 'Send Message'}
                       </button>
                     </div>
                   </div>
                   
-                  {submitStatus === 'error' && (
+                  {status === 'error' && (
                     <div className="mt-4 text-red-500 text-sm">
                       Failed to send message. Please try again.
                     </div>
