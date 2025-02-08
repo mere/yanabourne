@@ -3,6 +3,7 @@ import { GitContentSource } from "@stackbit/cms-git";
 
 export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",
+  ssgName: 'nextjs',
   contentSources: [
     new GitContentSource({
       rootPath: __dirname,
@@ -10,7 +11,7 @@ export default defineStackbitConfig({
       models: [
         {
           name: "HomeFeatures",
-          type: "data",
+          type: "object",
           filePath: "content/yana/home-features.json",
           fields: [
             {

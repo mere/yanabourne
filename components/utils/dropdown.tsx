@@ -36,12 +36,12 @@ export default function Dropdown({ children, title, href }: DropdownProps) {
       {href ? (
         <a 
           href={href} 
-          className="flex cursor-pointer items-center text-slate-800 dark:text-slate-400 transition"
+          className="flex cursor-pointer items-center text-slate-500 transition"
         >
           {title}
         </a>
       ) : (
-        <span className="flex cursor-pointer items-center text-slate-800 dark:text-slate-400 transition">
+        <span className="flex cursor-pointer items-center text-slate-500 transition">
           {title}
         </span>
       )}      
