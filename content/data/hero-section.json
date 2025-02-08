@@ -1,0 +1,20 @@
+{
+  "id": "hero",
+  "type": "HeroSection",
+  "heading": "Dr. Yana Bourne",
+  "subheading": "Experienced Dental Therapist, General Dentist & Endodontist",
+  "cta": {
+    "primary": {
+      "text": "Get in Touch",
+      "href": "#contact",
+      "icon": "→"
+    }
+  },
+  "image": {
+    "src": "/images/yana/hero.png",
+    "alt": "Hero",
+    "width": 540,
+    "height": 405
+  },
+  "stackbit_model_type": "HeroSection"
+} 

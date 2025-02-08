@@ -3,13 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import microscope from "@/public/images/yana/microscope.jpg";
-import content from "@/content/yana/home-features.json";
+import content from "@/content/data/home.json";
 
 export default function FeaturesHome() {
   const [tab, setTab] = useState<number>(1);
 
   return (
-    <section className="relative" id="about" data-sb-object-id="/content/yana/home-features.json">
+    <section className="relative" id="about" data-sb-object-id="content/data/home.json">
       <div
         className="absolute inset-0  pointer-events-none mb-64 md:mb-80"
         aria-hidden="true"

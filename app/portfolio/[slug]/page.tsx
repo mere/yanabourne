@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import Gallery from '@/components/yana/gallery'
+import data from '@/content/data/portfolioItems.json'
 
 export const metadata = {
   title: 'Portfolio Details',
@@ -10,7 +11,7 @@ export const metadata = {
 
 // This would need to be replaced with actual data fetching
 async function getPortfolioItem(slug: string) {
-  const portfolioItems = (await import('../../../content/portfolio/portfolioItems.json')).items
+  const portfolioItems = data.items
   return portfolioItems.find(item => item.slug === slug)
 }
 
@@ -21,9 +22,11 @@ export default async function PortfolioPost({ params }: { params: Promise<{ slug
     notFound()
   }
   
+  const itemIndex = data.items.findIndex(item => item.slug === portfolio.slug);
+  const fieldPath = `items.${itemIndex}`;
 
   return (
-    <section className="relative">
+    <section className="relative" data-sb-object-id="content/data/portfolioItems.json">
       <div className="absolute inset-0 bg-slate-900 pointer-events-none -z-10 mb-36 lg:mb-0 lg:h-[48rem] [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]" aria-hidden="true"></div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -41,8 +44,9 @@ export default async function PortfolioPost({ params }: { params: Promise<{ slug
                   </Link>
                 </div>
                 
-                <h1 className="h2 text-slate-200 mb-4">
-                  {portfolio.title}</h1>
+                <h1 className="h2 text-slate-200 mb-4" data-sb-field-path={`${fieldPath}.title`}>
+                  {portfolio.title}
+                </h1>
               </header>
 
               {/* Main image */}
@@ -54,23 +58,29 @@ export default async function PortfolioPost({ params }: { params: Promise<{ slug
                   height={400}
                   alt={portfolio.title}
                   priority
+                  data-sb-field-path={`${fieldPath}.image`}
                 />
               </div>
 
               {/* Content */}
               <div className="text-lg text-slate-500 space-y-8">
-                <p>{portfolio.description}</p>
+                <p data-sb-field-path={`${fieldPath}.description`}>
+                  {portfolio.description}
+                </p>
               </div>
 
             </article>
             
           
-              <Gallery items={portfolio.images.map((image, index) => ({
-                id: index,
-                src: image,
-                width: 800,
-                height: 400
-              }))} />
+              <Gallery 
+                items={portfolio.images.map((image, index) => ({
+                  id: index,
+                  src: image,
+                  width: 800,
+                  height: 400
+                }))}
+                fieldPath={fieldPath}
+              />
         </div>
       </div>
     </section>
