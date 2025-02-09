@@ -23,7 +23,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Lang }>
       <Hero lang={lang} />
       <Features lang={lang} />
       <Locations lang={lang} />
-      <Certificates lang={lang} />
+      {/* <Certificates lang={lang} /> */}
       <Portfolio lang={lang} />
       <Contact lang={lang} />
       <Footer lang={lang} />
