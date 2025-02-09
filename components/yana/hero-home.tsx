@@ -58,9 +58,7 @@ export default function HeroHome({ lang }: { lang: Lang }) {
                 data-sb-field-path="image"
               />
             </div>
-
           </div>
-
         </div>
       </div>
     </section>

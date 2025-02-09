@@ -12,7 +12,7 @@ export default function FeaturesHome({ lang }: { lang: Lang }) {
   const content = lang === 'ru' ? contentRu : contentEn;
 
   return (
-    <section className="relative" id="about" data-sb-object-id="content/data/home.json">
+    <section className="relative" id="about" data-sb-object-id={`content/data/${lang}/home.json`}>
       <div
         className="absolute inset-0  pointer-events-none mb-64 md:mb-80"
         aria-hidden="true"
