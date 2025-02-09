@@ -10,7 +10,7 @@ export default function Portfolio({ lang }: { lang: Lang }) {
   
   const portfolioData = lang === 'ru' ? portfolioDataRu : portfolioDataEn;
   return (
-    <section className="relative" id="portfolio" data-sb-object-id="content/data/portfolio-section.json">
+    <section className="relative" id="portfolio" data-sb-object-id={`content/data/${lang}/portfolio-section.json`}>
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"

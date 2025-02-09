@@ -1,0 +1,15 @@
+{
+  "type": "FooterSection",
+  "stackbit_model_type": "FooterSection",
+  "socialLinks": [
+    {
+      "href": "https://t.me/yana_bourne",
+      "ariaLabel": "Телеграм"
+    },
+    {
+      "href": "mailto:website@yanabourne.com",
+      "ariaLabel": "Электронная почта"
+    }
+  ],
+  "copyrightText": "© yanabourne.com. Все права защищены."
+}

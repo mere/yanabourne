@@ -8,7 +8,7 @@ export default function Locations({ lang }: { lang: Lang }) {
   const data = lang === 'ru' ? locationsDataRu : locationsDataEn;
 
   return (
-    <section className="bg-slate-100" id="locations" data-sb-object-id="content/data/locations-section.json">
+    <section className="bg-slate-100" id="locations" data-sb-object-id={`content/data/${lang}/locations-section.json`}>
       <div className="max-w-3xl mx-auto text-center pt-24 mb-6">
         <h2 className="h2 font-playfair-display text-slate-800" data-sb-field-path="heading">{data.heading}</h2>
       </div>

@@ -5,39 +5,144 @@ export default defineStackbitConfig({
   stackbitVersion: "~0.7.0",
   ssgName: "nextjs",
   nodeVersion: "22",
+  sitemap: (options) => {
+    return [
+      {
+        urlPath: "/",
+        label: "Home",
+        stableId: "home",
+        isHomePage: true,
+      },
+    ];
+  },
   contentSources: [
     new GitContentSource({
       rootPath: __dirname,
       contentDirs: ["content"],
+
       models: [
         {
           type: "page",
-          name: "Home",
-          label: "Home",
+          name: "YanaBourne-Site",
+          label: "YanaBourne-Site",
           urlPath: "/",
           fields: [
+            {
+              name: "sections",
+              type: "model",
+              models: [
+                "HeroSection",
+                "LocationsSection",
+                "PortfolioSection",
+                "ContactSection",
+                "CertificatesSection",
+                "FooterSection",
+                "GallerySection",
+                "Home",
+              ],
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "CertificatesSection",
+          label: "Certificates Section",
+          fields: [
+            { type: "string", name: "heading", required: true },
+            {
+              type: "list",
+              name: "certificates",
+              items: {
+                type: "object",
+                fields: [
+                  { type: "string", name: "date", required: true },
+                  { type: "string", name: "title", required: true },
+                  { type: "string", name: "link", required: true },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "FooterSection",
+          label: "Footer Section",
+          fields: [
+            {
+              type: "list",
+              name: "socialLinks",
+              items: {
+                type: "object",
+                fields: [
+                  { type: "string", name: "href", required: true },
+                  { type: "string", name: "ariaLabel", required: true },
+                ],
+              },
+            },
+            { type: "string", name: "copyrightText", required: true },
+          ],
+        },
+        {
+          type: "object",
+          name: "GallerySection",
+          label: "Gallery Section",
+          fields: [
+            { type: "string", name: "type", const: "GallerySection" },
+            {
+              type: "string",
+              name: "stackbit_model_type",
+              const: "GallerySection",
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "Home",
+          label: "Home",
+          fields: [
+            { type: "string", name: "id", required: true },
+            { type: "string", name: "type", const: "Home" },
             {
               type: "object",
               name: "header",
               fields: [
                 { type: "string", name: "title", required: true },
-                { type: "string", name: "introduction", required: true }
-              ]
+                { type: "string", name: "introduction", required: true },
+              ],
             },
             {
               type: "object",
               name: "story",
               fields: [
                 { type: "string", name: "title", required: true },
-                { 
+                {
                   type: "list",
                   name: "content",
-                  items: { type: "string" }
-                }
-              ]
+                  items: { type: "string" },
+                },
+              ],
             },
-            { name: 'sections', type: 'model', models: ['HeroSection'] },
-          ]
+            {
+              type: "object",
+              name: "contact",
+              fields: [
+                { type: "string", name: "title", required: true },
+                { type: "string", name: "description", required: true },
+                {
+                  type: "list",
+                  name: "methods",
+                  items: {
+                    type: "object",
+                    fields: [
+                      { type: "string", name: "type", required: true },
+                      { type: "string", name: "value", required: true },
+                      { type: "string", name: "label", required: true },
+                    ],
+                  },
+                },
+              ],
+            },
+          ],
         },
         {
           type: "object",
@@ -58,10 +163,10 @@ export default defineStackbitConfig({
                   fields: [
                     { type: "string", name: "text", required: true },
                     { type: "string", name: "href", required: true },
-                    { type: "string", name: "icon" }
-                  ]
-                }
-              ]
+                    { type: "string", name: "icon" },
+                  ],
+                },
+              ],
             },
             {
               type: "object",
@@ -70,11 +175,15 @@ export default defineStackbitConfig({
                 { type: "image", name: "src", required: true },
                 { type: "string", name: "alt", required: true },
                 { type: "number", name: "width", required: true },
-                { type: "number", name: "height", required: true }
-              ]
+                { type: "number", name: "height", required: true },
+              ],
             },
-            { type: "string", name: "stackbit_model_type", const: "HeroSection" }
-          ]
+            {
+              type: "string",
+              name: "stackbit_model_type",
+              const: "HeroSection",
+            },
+          ],
         },
         {
           type: "object",
@@ -97,13 +206,17 @@ export default defineStackbitConfig({
                     type: "list",
                     name: "description",
                     items: { type: "string" },
-                    required: true
-                  }
-                ]
-              }
+                    required: true,
+                  },
+                ],
+              },
             },
-            { type: "string", name: "stackbit_model_type", const: "LocationsSection" }
-          ]
+            {
+              type: "string",
+              name: "stackbit_model_type",
+              const: "LocationsSection",
+            },
+          ],
         },
         {
           type: "object",
@@ -128,14 +241,18 @@ export default defineStackbitConfig({
                       { type: "image", name: "src", required: true },
                       { type: "string", name: "alt", required: true },
                       { type: "number", name: "width", required: true },
-                      { type: "number", name: "height", required: true }
-                    ]
-                  }
-                ]
-              }
+                      { type: "number", name: "height", required: true },
+                    ],
+                  },
+                ],
+              },
             },
-            { type: "string", name: "stackbit_model_type", const: "PortfolioSection" }
-          ]
+            {
+              type: "string",
+              name: "stackbit_model_type",
+              const: "PortfolioSection",
+            },
+          ],
         },
         {
           type: "object",
@@ -155,8 +272,8 @@ export default defineStackbitConfig({
                   fields: [
                     { type: "string", name: "label", required: true },
                     { type: "string", name: "placeholder", required: true },
-                    { type: "boolean", name: "required", required: true }
-                  ]
+                    { type: "boolean", name: "required", required: true },
+                  ],
                 },
                 {
                   type: "object",
@@ -164,8 +281,8 @@ export default defineStackbitConfig({
                   fields: [
                     { type: "string", name: "label", required: true },
                     { type: "string", name: "placeholder", required: true },
-                    { type: "boolean", name: "required", required: true }
-                  ]
+                    { type: "boolean", name: "required", required: true },
+                  ],
                 },
                 {
                   type: "object",
@@ -173,27 +290,27 @@ export default defineStackbitConfig({
                   fields: [
                     { type: "string", name: "label", required: true },
                     { type: "string", name: "placeholder", required: true },
-                    { type: "boolean", name: "required", required: true }
-                  ]
+                    { type: "boolean", name: "required", required: true },
+                  ],
                 },
                 {
                   type: "object",
                   name: "submitButton",
                   fields: [
                     { type: "string", name: "text", required: true },
-                    { type: "string", name: "loadingText", required: true }
-                  ]
+                    { type: "string", name: "loadingText", required: true },
+                  ],
                 },
                 {
                   type: "object",
                   name: "successMessage",
                   fields: [
                     { type: "string", name: "title", required: true },
-                    { type: "string", name: "description", required: true }
-                  ]
+                    { type: "string", name: "description", required: true },
+                  ],
                 },
-                { type: "string", name: "errorMessage", required: true }
-              ]
+                { type: "string", name: "errorMessage", required: true },
+              ],
             },
             {
               type: "object",
@@ -202,11 +319,15 @@ export default defineStackbitConfig({
                 { type: "image", name: "src", required: true },
                 { type: "string", name: "alt", required: true },
                 { type: "number", name: "width", required: true },
-                { type: "number", name: "height", required: true }
-              ]
+                { type: "number", name: "height", required: true },
+              ],
             },
-            { type: "string", name: "stackbit_model_type", const: "ContactSection" }
-          ]
+            {
+              type: "string",
+              name: "stackbit_model_type",
+              const: "ContactSection",
+            },
+          ],
         },
         {
           type: "data",
@@ -230,14 +351,18 @@ export default defineStackbitConfig({
                     type: "list",
                     name: "images",
                     items: { type: "image" },
-                    required: true
-                  }
-                ]
-              }
+                    required: true,
+                  },
+                ],
+              },
             },
-            { type: "string", name: "stackbit_model_type", const: "PortfolioItems" }
-          ]
-        }
+            {
+              type: "string",
+              name: "stackbit_model_type",
+              const: "PortfolioItems",
+            },
+          ],
+        },
       ],
       assetsConfig: {
         referenceType: "static",
