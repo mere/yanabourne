@@ -6,6 +6,7 @@ import dataEn from '@/content/data/en/portfolioItems.json'
 import dataRu from '@/content/data/ru/portfolioItems.json'
 import { Lang } from '../../page'
 import Header from '@/components/ui/header'
+import Footer from '@/components/ui/footer'
 
 
 export const metadata = {
@@ -91,6 +92,7 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
               />
         </div>
       </div>
+      <Footer lang={lang} />
     </section>
   )
 }
