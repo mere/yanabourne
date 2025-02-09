@@ -1,20 +1,26 @@
 {
-  "id": "hero",
   "type": "HeroSection",
   "heading": "Dr. Yana Bourne",
   "subheading": "Experienced Dental Therapist, General Dentist & Endodontist",
+  "description": "With over 18 years of experience in advanced dentistry, I bring expertise in complex endodontic procedures and general dentistry from Moscow to London.",
   "cta": {
     "primary": {
-      "text": "Get in Touch",
+      "text": "Book Consultation",
       "href": "#contact",
       "icon": "→"
+    },
+    "secondary": {
+      "text": "Learn More",
+      "href": "#about"
     }
   },
   "image": {
+    "alt": "Dr. Yana Bourne",
+
     "src": "/images/yana/hero.png",
-    "alt": "Hero",
+
     "width": 540,
     "height": 405
   },
   "stackbit_model_type": "HeroSection"
-} 
+}

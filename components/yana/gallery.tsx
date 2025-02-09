@@ -1,6 +1,10 @@
 "use client";
 
 import Image from 'next/image';
+import { Link } from '@/components/utils/link'
+import { Lang } from '@/app/[lang]/page'
+import galleryDataEn from "@/content/data/en/gallery-section.json";
+import galleryDataRu from "@/content/data/ru/gallery-section.json";
 
 interface PortfolioItem {
   id: number;
@@ -11,11 +15,15 @@ interface PortfolioItem {
 
 export default function Gallery({ 
   items,
-  fieldPath
+  fieldPath,
+  lang
 }: { 
   items: PortfolioItem[];
   fieldPath: string;
+  lang: Lang;
 }) {
+  const data = lang === 'ru' ? galleryDataRu : galleryDataEn;
+
   return (
     <section className="relative" id="portfolio">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

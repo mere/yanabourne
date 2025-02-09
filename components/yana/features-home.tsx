@@ -3,10 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import microscope from "@/public/images/yana/microscope.jpg";
-import content from "@/content/data/home.json";
+import contentEn from "@/content/data/en/home.json";
+import contentRu from "@/content/data/ru/home.json";
+import { Lang } from '@/app/[lang]/page'
 
-export default function FeaturesHome() {
+export default function FeaturesHome({ lang }: { lang: Lang }) {
   const [tab, setTab] = useState<number>(1);
+  const content = lang === 'ru' ? contentRu : contentEn;
 
   return (
     <section className="relative" id="about" data-sb-object-id="content/data/home.json">

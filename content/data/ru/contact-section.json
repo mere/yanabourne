@@ -1,0 +1,38 @@
+{
+  "type": "ContactSection",
+  "heading": "Свяжитесь со мной!",
+  "description": "Я всегда рада новым знакомствам и обсуждению потенциального сотрудничества. Если у вас есть вопросы о моей работе, вы хотите обсудить совместную работу или просто поздороваться - я буду рада услышать вас!",
+  "form": {
+    "name": {
+      "label": "Имя",
+      "placeholder": "Введите ваше имя",
+      "required": true
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Введите ваш email",
+      "required": true
+    },
+    "message": {
+      "label": "Сообщение",
+      "placeholder": "Напишите ваше сообщение",
+      "required": true
+    },
+    "submitButton": {
+      "text": "Отправить сообщение",
+      "loadingText": "Отправка..."
+    },
+    "successMessage": {
+      "title": "Спасибо за ваше сообщение!",
+      "description": "Я свяжусь с вами как можно скорее."
+    },
+    "errorMessage": "Не удалось отправить сообщение. Пожалуйста, попробуйте еще раз."
+  },
+  "image": {
+    "src": "/images/yana/yana.png",
+    "alt": "Яна",
+    "width": 256,
+    "height": 256
+  },
+  "stackbit_model_type": "ContactSection"
+} 

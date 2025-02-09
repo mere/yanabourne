@@ -1,13 +1,14 @@
-"use client";
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from 'next/link';
-import portfolioData from "@/content/data/portfolio-section.json";
+import portfolioDataEn from "@/content/data/en/portfolio-section.json"; 
+import portfolioDataRu from "@/content/data/ru/portfolio-section.json";
+import { Lang } from '@/app/[lang]/page'
+import { Link } from "../utils/link";
 
-export default function Portfolio() {
-  const [tab, setTab] = useState<number>(1);
-
+export default function Portfolio({ lang }: { lang: Lang }) {
+  
+  const portfolioData = lang === 'ru' ? portfolioDataRu : portfolioDataEn;
   return (
     <section className="relative" id="portfolio" data-sb-object-id="content/data/portfolio-section.json">
       <div
@@ -27,9 +28,10 @@ export default function Portfolio() {
           {/* Portfolio items */}
           <div className="max-w-sm mx-auto md:max-w-none grid gap-12 md:grid-cols-3 md:gap-x-6 md:gap-y-8 items-start">
             {portfolioData.items.map((item, index) => (
-              <Link 
+              <Link
                 key={item.link}
                 href={item.link}
+                lang={lang}
                 className="group cursor-pointer h-full"
                 data-sb-field-path={`items.${index}`}
               >

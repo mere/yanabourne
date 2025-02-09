@@ -2,9 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
-import Link from 'next/link'
+import { Lang } from '@/app/[lang]/page'
+import { Link } from '../utils/link'
 
-export default function MobileMenu() {
+export default function MobileMenu({ lang }: { lang: Lang }) {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
 
   const trigger = useRef<HTMLButtonElement>(null)
@@ -61,36 +62,36 @@ export default function MobileMenu() {
         >        
           <ul className="px-5 py-2">
             <li>
-              <Link href="/#about" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>About</Link>
+              <Link href="/#about" lang={lang} className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>About</Link>
             </li>
             <li>
-              <Link href="/#locations" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Locations</Link>
+              <Link href="/#locations" lang={lang} className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Locations</Link>
             </li>
             {/* <li>
-              <Link href="#certificates" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Certificates</Link>
+              <Link href="#certificates" lang={lang} className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Certificates</Link>
             </li> */}
             <li className="border-t border-slate-200 mt-2 pt-2">
-              <Link href="/#portfolio" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Portfolio</Link>
+              <Link href="/#portfolio" lang={lang} className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Portfolio</Link>
               <ul className="pl-4">
                 <li>
-                  <Link href="/portfolio/complex-endodontic-procedures" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
+                  <Link href="/portfolio/complex-endodontic-procedures" lang={lang} className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
                     Complex Endodontic Procedures
                   </Link>
                 </li>
                 <li>
-                  <Link href="/portfolio/advanced-restorative-techniques" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
+                  <Link href="/portfolio/advanced-restorative-techniques" lang={lang} className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
                     Advanced Restorative Techniques
                   </Link>
                 </li>
                 <li>
-                  <Link href="/portfolio/minimally-invasive-dental-treatments" className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
+                  <Link href="/portfolio/minimally-invasive-dental-treatments" lang={lang} className="flex font-medium text-sm text-slate-600 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>
                     Minimally Invasive Dental Treatments
                   </Link>
                 </li>
               </ul>
             </li>
             <li className="border-t border-slate-200 mt-2 pt-2">
-              <Link href="/#contact" className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Contact</Link>
+              <Link href="/#contact" lang={lang} className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Contact</Link>
             </li>
           </ul>
         </Transition>

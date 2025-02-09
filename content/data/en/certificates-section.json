@@ -1,0 +1,16 @@
+{
+    "heading": "Certificates and Awards",
+    "certificates": [
+      {
+        "date": "January 2023",
+        "title": "Advanced Dental Techniques",
+        "link": "/certificates/advanced-dental-techniques"
+      },
+      {
+        "date": "March 2023",
+        "title": "Endodontics Mastery",
+        "link": "/certificates/endodontics-mastery"
+      }
+      
+    ]
+  }

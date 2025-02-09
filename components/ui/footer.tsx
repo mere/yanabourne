@@ -1,11 +1,10 @@
-import Link from 'next/link'
 import Logo from './logo'
+import { Lang } from '@/app/[lang]/page'
 
-export default function Footer() {
+export default function Footer({ lang }: { lang: Lang }) {
   return (
-    <footer>
+    <footer lang={lang}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-
 
         {/* Bottom area */}
         <div className="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-slate-200">
@@ -31,7 +30,7 @@ export default function Footer() {
           </ul>
 
           {/* Copyrights note */}
-          <Logo />
+          <Logo lang={lang} />
           <div className="text-sm text-slate-500 mr-4">© yanabourne.com. All rights reserved.</div>
 
         </div>

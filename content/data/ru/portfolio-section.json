@@ -1,0 +1,40 @@
+{
+  "type": "PortfolioSection",
+  "heading": "Портфолио",
+  "items": [
+    {
+      "title": "Сложные эндодонтические процедуры",
+      "description": "Я специализируюсь на сложных эндодонтических процедурах, включая лечение и перелечивание корневых каналов.",
+      "image": {
+        "src": "/images/portfolio/IMG_8680.jpg",
+        "alt": "Сложные эндодонтические процедуры",
+        "width": 500,
+        "height": 300
+      },
+      "link": "/ru/portfolio/complex-endodontic-procedures"
+    },
+    {
+      "title": "Передовые реставрационные техники",
+      "description": "Я специализируюсь на передовых реставрационных техниках, включая имплантацию и полную реабилитацию полости рта.",
+      "image": {
+        "src": "/images/portfolio/DSC_4233.JPG",
+        "alt": "Передовые реставрационные техники",
+        "width": 500,
+        "height": 300
+      },
+      "link": "/ru/portfolio/advanced-restorative-techniques"
+    },
+    {
+      "title": "Минимально инвазивное лечение",
+      "description": "Я специализируюсь на минимально инвазивной стоматологии, включая методики сохранения зубов и консервативные варианты реставрации.",
+      "image": {
+        "src": "/images/portfolio/IMG_8413.jpg",
+        "alt": "Минимально инвазивное лечение",
+        "width": 500,
+        "height": 300
+      },
+      "link": "/ru/portfolio/minimally-invasive-dental-treatments"
+    }
+  ],
+  "stackbit_model_type": "PortfolioSection"
+} 

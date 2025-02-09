@@ -2,14 +2,17 @@
 
 import { useRef, useState } from "react";
 import { Transition } from '@headlessui/react'
+import { Link } from "./link";
+import { Lang } from "@/app/[lang]/page";
 
 type DropdownProps = {
   children: React.ReactNode;
   title: string;
   href?: string;
+  lang: Lang;
 };
 
-export default function Dropdown({ children, title, href }: DropdownProps) {
+export default function Dropdown({ children, title, href, lang }: DropdownProps) {
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
@@ -34,12 +37,13 @@ export default function Dropdown({ children, title, href }: DropdownProps) {
       onMouseLeave={() => setDropdownOpen(false)}
     >
       {href ? (
-        <a 
+        <Link
           href={href} 
+          lang={lang}
           className="flex cursor-pointer items-center text-slate-500 transition"
         >
           {title}
-        </a>
+        </Link>
       ) : (
         <span className="flex cursor-pointer items-center text-slate-500 transition">
           {title}

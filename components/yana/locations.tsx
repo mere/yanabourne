@@ -1,18 +1,23 @@
 import Image from "next/image";
-import locationsData from "@/content/data/locations-section.json";
+import locationsDataEn from "@/content/data/en/locations-section.json";
+import locationsDataRu from "@/content/data/ru/locations-section.json";
+import { Link } from '@/components/utils/link'
+import { Lang } from '@/app/[lang]/page'
 
-export default function Locations() {
+export default function Locations({ lang }: { lang: Lang }) {
+  const data = lang === 'ru' ? locationsDataRu : locationsDataEn;
+
   return (
     <section className="bg-slate-100" id="locations" data-sb-object-id="content/data/locations-section.json">
       <div className="max-w-3xl mx-auto text-center pt-24 mb-6">
-        <h2 className="h2 font-playfair-display text-slate-800" data-sb-field-path="heading">{locationsData.heading}</h2>
+        <h2 className="h2 font-playfair-display text-slate-800" data-sb-field-path="heading">{data.heading}</h2>
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-12">
           {/* Locations */}
           <div className="max-w-sm mx-auto md:max-w-none grid gap-20 md:grid-cols-2 items-start mb-12 md:mb-20">
-            {locationsData.locations.map((location, index) => (
+            {data.locations.map((location, index) => (
               <div
                 key={location.city}
                 className="h-full flex flex-col items-center text-center"
