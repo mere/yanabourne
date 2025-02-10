@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stackbit": "npx @stackbit/dev dev --host 192.168.68.60 --port 3000"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
