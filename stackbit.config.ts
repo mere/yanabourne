@@ -4,7 +4,7 @@ import { GitContentSource } from "@stackbit/cms-git";
 export default defineStackbitConfig({
   stackbitVersion: "~0.7.0",
   ssgName: "nextjs",
-  nodeVersion: "22",
+  nodeVersion: "20",
   sitemap: (options) => {
     return [
       {
