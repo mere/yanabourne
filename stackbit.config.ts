@@ -4,7 +4,7 @@ import { GitContentSource } from "@stackbit/cms-git";
 export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",
   ssgName: "nextjs",
-  nodeVersion: "22",
+  nodeVersion: "18",
   sitemap: (options) => {
     return [
       {
@@ -30,16 +30,7 @@ export default defineStackbitConfig({
             {
               name: "sections",
               type: "model",
-              models: [
-                "HeroSection",
-                "LocationsSection",
-                "PortfolioSection",
-                "ContactSection",
-                "CertificatesSection",
-                "FooterSection",
-                "GallerySection",
-                "Home",
-              ],
+              models: [],
             },
           ],
         },
@@ -64,7 +55,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "FooterSection",
           label: "Footer Section",
           fields: [
@@ -83,7 +74,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "GallerySection",
           label: "Gallery Section",
           fields: [
@@ -96,7 +87,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "Home",
           label: "Home",
           fields: [
@@ -145,7 +136,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "HeroSection",
           label: "Hero Section",
           fields: [
@@ -186,7 +177,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "LocationsSection",
           label: "Locations Section",
           fields: [
@@ -219,7 +210,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "PortfolioSection",
           label: "Portfolio Section",
           fields: [
@@ -255,7 +246,7 @@ export default defineStackbitConfig({
           ],
         },
         {
-          type: "object",
+          type: "data",
           name: "ContactSection",
           label: "Contact Section",
           fields: [

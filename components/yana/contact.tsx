@@ -144,7 +144,7 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
 
               {/* Text content */}
               <div>
-                <h2 className="h2 flex text-slate-100 mb-4 relative" data-sb-field-path="heading">
+                <h2 className="text-4-5xl flex text-slate-100 mb-4 relative" data-sb-field-path="heading">
                   {contactContent.heading}
                   <div className="fill-slate-300 -mt-5 hidden lg:block" aria-hidden="true">
                     <svg className="fill-slate-600" width="56" height="43">
