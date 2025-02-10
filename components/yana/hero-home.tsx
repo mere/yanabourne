@@ -7,7 +7,7 @@ import { Link as CustomLink } from '@/components/utils/link'
 export default function HeroHome({ lang }: { lang: Lang }) {
   const data = lang === "ru" ? heroContentRu : heroContentEn;
   return (
-    <section className="relative overflow-hidden h-[90vh] [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]" data-sb-object-id={`content/data/${lang}/hero-section.json`}>
+    <section className="relative overflow-hidden [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]" data-sb-object-id={`content/data/${lang}/hero-section.json`}>
 
       {/* Dark background */}
       <div className="absolute inset-0 bg-slate-300 pointer-events-none -z-10" aria-hidden="true"></div>
