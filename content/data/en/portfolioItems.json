@@ -1,0 +1,43 @@
+{
+  "id": "en",
+  "type": "PortfolioItems",
+  "items": [
+    {
+      "slug": "complex-endodontic-procedures",
+      "title": "Complex Endodontic Procedures",
+      "description": "I performed advanced endodontic treatments using state-of-the-art microscopy and 3D imaging technology. Through these complex procedures, I demonstrated my precision in managing challenging root canal anatomies, retreatments, and microsurgical techniques. Each case showcases how I preserve natural teeth through minimally invasive approaches and evidence-based protocols.",
+      "image": "/images/portfolio/IMG_8680.jpg",
+      "images": [
+        "/images/portfolio/IMG_8661.JPG",
+        "/images/portfolio/IMG_8674.jpg",
+        "/images/portfolio/IMG_8675.jpg",
+        "/images/portfolio/IMG_8680.jpg"
+      ]
+    },
+    {
+      "slug": "advanced-restorative-techniques",
+      "title": "Advanced Restorative Techniques",
+      "description": "I specialize in advanced restorative techniques, utilizing cutting-edge technology and materials to deliver exceptional results in dental implants and full mouth rehabilitation. Each case demonstrates my commitment to precision, aesthetics, and optimal functional outcomes.",
+      "image": "/images/portfolio/DSC_4233.JPG",
+      "images": [
+        "/images/portfolio/IMG_8676.JPG"
+      ]
+    },
+    {
+      "slug": "minimally-invasive-dental-treatments",
+      "title": "Minimally Invasive Dental Treatments",
+      "description": "My approach focuses on preserving natural tooth structure through minimally invasive techniques. These cases showcase how modern conservative dentistry can achieve excellent results while maintaining the integrity of the patient's natural teeth.",
+      "image": "/images/portfolio/IMG_8413.jpg",
+      "images": [
+        "/images/portfolio/IMG_8656.jpg",
+        "/images/portfolio/IMG_8657.jpg",
+        "/images/portfolio/IMG_8658.jpg",
+        "/images/portfolio/IMG_8659.jpg",
+        "/images/portfolio/IMG_8665.jpg",
+        "/images/portfolio/IMG_8667.jpg",
+        "/images/portfolio/IMG_8668.jpg",
+        "/images/portfolio/IMG_8666.jpg"
+      ]
+    }
+  ]
+} 

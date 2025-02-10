@@ -2,13 +2,17 @@
 
 import { useRef, useState } from "react";
 import { Transition } from '@headlessui/react'
+import { Link } from "./link";
+import { Lang } from "@/app/[lang]/page";
 
 type DropdownProps = {
   children: React.ReactNode;
   title: string;
+  href?: string;
+  lang: Lang;
 };
 
-export default function Dropdown({ children, title }: DropdownProps) {
+export default function Dropdown({ children, title, href, lang }: DropdownProps) {
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
@@ -32,9 +36,19 @@ export default function Dropdown({ children, title }: DropdownProps) {
       onMouseEnter={() => setDropdownOpen(true)}
       onMouseLeave={() => setDropdownOpen(false)}
     >
-      <span className="flex cursor-pointer items-center text-slate-800 dark:text-slate-400 transition">
-        {title}
-      </span>      
+      {href ? (
+        <Link
+          href={href} 
+          lang={lang}
+          className="flex cursor-pointer items-center text-slate-500 transition"
+        >
+          {title}
+        </Link>
+      ) : (
+        <span className="flex cursor-pointer items-center text-slate-500 transition">
+          {title}
+        </span>
+      )}      
       <button
         aria-expanded={dropdownOpen}
         onClick={handleClick}
@@ -49,7 +63,7 @@ export default function Dropdown({ children, title }: DropdownProps) {
           ref={dropdownRef}
           show={dropdownOpen}
           as="ul"
-          className="origin-top-right absolute top-full right-0 w-40 bg-white py-2 ml-4 rounded-sm shadow-lg transform transition ease-out data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
+          className="origin-top-right absolute top-full -left-42 w-84 bg-white py-2 ml-4 rounded-sm shadow-lg transform transition ease-out data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
           onBlur={handleFocusOut}
         >
         {children}

@@ -1,0 +1,38 @@
+{
+  "type": "ContactSection",
+  "heading": "Get in touch!",
+  "description": "I'm always happy to connect with new people and discuss potential collaborations. Whether you have questions about my work, want to explore working together, or just want to say hello - I'd love to hear from you!",
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name",
+      "required": true
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "required": true
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Write your message",
+      "required": true
+    },
+    "submitButton": {
+      "text": "Send Message",
+      "loadingText": "Sending..."
+    },
+    "successMessage": {
+      "title": "Thank you for your message!",
+      "description": "I'll get back to you as soon as possible."
+    },
+    "errorMessage": "Failed to send message. Please try again."
+  },
+  "image": {
+    "src": "/images/yana/yana.png",
+    "alt": "Yana",
+    "width": 256,
+    "height": 256
+  },
+  "stackbit_model_type": "ContactSection"
+} 

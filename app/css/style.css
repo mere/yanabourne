@@ -49,9 +49,15 @@ h1, h2, h3, h4, h5, h6 {
   --text-3xl: 2rem;
   --text-3xl--line-height: 1.3125;
   --text-3xl--letter-spacing: -0.01em;
+
   --text-4xl: 2.25rem;
   --text-4xl--line-height: 1.25;
   --text-4xl--letter-spacing: -0.01em;
+
+  --text-4-5xl: 2.5rem;
+  --text-4-5xl--line-height: 1.25;
+  --text-4-5xl--letter-spacing: -0.01em;
+
   --text-5xl: 3rem;
   --text-5xl--line-height: 1.2;
   --text-5xl--letter-spacing: -0.01em;

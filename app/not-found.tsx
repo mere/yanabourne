@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="flex flex-col min-h-screen overflow-hidden">
 
       {/*  Site header */}
-      <Header mode="light" />
+      <Header lang='en' />
 
       {/*  Page content */}
       <main className="grow border-b border-slate-200">
@@ -34,9 +34,8 @@ export default function NotFound() {
 
       </main>
 
-
       {/*  Site footer */}
-      <Footer />
+      <Footer lang='en' />
 
     </div>
   );

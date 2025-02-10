@@ -1,29 +1,29 @@
 {
-    "name": "Node.js Dev Container",
-    "build": {
-      "dockerfile": "Dockerfile"
-    },
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "astro-build.astro-vscode",
-          "bradlc.vscode-tailwindcss",
-          "dbaeumer.vscode-eslint",
-          "esbenp.prettier-vscode",
-          "ms-azuretools.vscode-docker",
-          "unifiedjs.vscode-mdx",
-          "GitHub.copilot",
-          "GitHub.copilot-chat"
-        ]
-      }
-    },
-    "forwardPorts": [3000],
-    "portsAttributes": {
-      "4321": {
-        "label": "yanabourne",
-        "onAutoForward": "openBrowserOnce"
-      }
-    },
-    "remoteUser": "node"
-  }
-  
+  "name": "Node.js Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "bradlc.vscode-tailwindcss",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "unifiedjs.vscode-mdx",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "4321": {
+      "label": "yanabourne",
+      "onAutoForward": "openBrowserOnce"
+    }
+  },
+  "runArgs": ["-p=3000:3000", "-p=4321:4321", "-p=8090:8090"],
+  "remoteUser": "node"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "CertificatesSection",
+  "heading": "Сертификаты и награды",
+  "certificates": [
+    {
+      "date": "Январь 2023",
+      "title": "Продвинутые стоматологические техники",
+      "link": "/certificates/advanced-dental-techniques"
+    },
+    {
+      "date": "Март 2023",
+      "title": "Мастерство эндодонтии",
+      "link": "/certificates/endodontics-mastery"
+    }
+    
+  ]
+}
