@@ -1,15 +1,9 @@
 'use client';
 
 import { FC, useEffect } from 'react';
-import Parvus from 'parvus';
 
-// Declare module to fix TypeScript error
-declare module 'parvus' {
-  export default class Parvus {
-    constructor(options?: { selector?: string });
-    destroy(): void;
-  }
-}
+// @ts-ignore
+import Parvus from 'parvus';
 
 interface LightBoxHelperProps {
   selector?: string;
