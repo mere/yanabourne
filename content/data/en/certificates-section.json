@@ -1,17 +1,56 @@
 {
-    "type": "CertificatesSection",
-    "heading": "Certificates and Awards",
-    "certificates": [
-      {
-        "date": "January 2023",
-        "title": "Advanced Dental Techniques",
-        "link": "/certificates/advanced-dental-techniques"
-      },
-      {
-        "date": "March 2023",
-        "title": "Endodontics Mastery",
-        "link": "/certificates/endodontics-mastery"
-      }
-      
-    ]
-  }
+  "type": "CertificatesSection",
+  "heading": "Certificates and Awards",
+  "certificates": [
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/1.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/2.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/3.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/4.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/5.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/6.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/7.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/8.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/9.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/10.png"
+    }
+  ]
+}

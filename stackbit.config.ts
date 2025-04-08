@@ -48,7 +48,7 @@ export default defineStackbitConfig({
                 fields: [
                   { type: "string", name: "date", required: true },
                   { type: "string", name: "title", required: true },
-                  { type: "string", name: "link", required: true },
+                  { type: "string", name: "src", required: true },
                 ],
               },
             },

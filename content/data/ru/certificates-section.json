@@ -3,14 +3,54 @@
   "heading": "Сертификаты и награды",
   "certificates": [
     {
-      "date": "Январь 2023",
-      "title": "Продвинутые стоматологические техники",
-      "link": "/certificates/advanced-dental-techniques"
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/1.png"
     },
     {
-      "date": "Март 2023",
-      "title": "Мастерство эндодонтии",
-      "link": "/certificates/endodontics-mastery"
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/2.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/3.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/4.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/5.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/6.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/7.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/8.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/9.png"
+    },
+    {
+      "date": "",
+      "title": "",
+      "src": "/images/certificates/10.png"
     }
     
   ]

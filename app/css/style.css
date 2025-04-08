@@ -6,6 +6,8 @@
 @import './additional-styles/toggle-switch.css' layer(components);
 @import './additional-styles/theme.css';
 
+@import './parvus.css' layer(components);
+
 @plugin "@tailwindcss/forms" {
   strategy: base;
 }
