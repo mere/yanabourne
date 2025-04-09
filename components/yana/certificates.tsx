@@ -26,7 +26,7 @@ export default function Certificates({ lang }: { lang: Lang }) {
             {data.certificates.map((certificate, index) => (
               <article
                 key={index}
-                className={`flex flex-col rounded-lg overflow-hidden shadow-xl bg-slate-100 ring-4 md:ring-8 mb-4 md:mb-8 ring-slate-200 ${
+                className={`flex flex-col rounded-lg overflow-hidden shadow-xl bg-slate-100 ring-4 md:ring-8 mt-4 md:mt-8 first:mt-0 ring-slate-200 ${
                   index === 1 ? "lg:break-after-column" : ""
                 }`}
                 data-aos="fade-up"
