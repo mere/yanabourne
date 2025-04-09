@@ -15,7 +15,6 @@ const LightBoxHelper: FC<LightBoxHelperProps> = ({ selector = '.lightbox' }) => 
       selector: selector,
       zoomIndicator: false
     });
-    console.log(lightbox);
 
     return () => {
       lightbox.destroy();

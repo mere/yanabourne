@@ -20,13 +20,15 @@ export default function Certificates({ lang }: { lang: Lang }) {
           </div>
           {/* Testimonials container */}
           <div
-            className="max-w-sm mx-auto sm:max-w-none columns-2  lg:columns-3 gap-8 mb-12 md:mb-16"
+            className="max-w-sm mx-auto sm:max-w-none columns-3 lg:columns-4 gap-4 md:gap-8 mb-12 md:mb-16"
             data-aos-id-testimonials
           >
             {data.certificates.map((certificate, index) => (
               <article
                 key={index}
-                className="flex flex-col rounded-lg overflow-hidden shadow-xl bg-slate-100 ring-8 mb-8 ring-slate-200"
+                className={`flex flex-col rounded-lg overflow-hidden shadow-xl bg-slate-100 ring-4 md:ring-8 mb-4 md:mb-8 ring-slate-200 ${
+                  index === 1 ? "lg:break-after-column" : ""
+                }`}
                 data-aos="fade-up"
                 data-aos-anchor="[data-aos-id-testimonials]"
                 data-sb-field-path={`certificates.${index}`}
@@ -35,7 +37,6 @@ export default function Certificates({ lang }: { lang: Lang }) {
                   href={certificate.src}
                   className="lightbox"
                   data-group="certificates"
-                  
                 >
                   <Image
                     src={certificate.src}
@@ -45,10 +46,22 @@ export default function Certificates({ lang }: { lang: Lang }) {
                     height={100}
                   />
                 </a>
-                <footer className="text-sm font-medium p-2 text-center">
-                  <div className="text-slate-500" data-sb-field-path={`certificates.${index}.title`}>{certificate.title}</div>
-                  <div className="text-slate-800" data-sb-field-path={`certificates.${index}.date`}>{certificate.date}</div>
-                </footer>
+                {(certificate.title || certificate.date) && (
+                  <footer className="text-sm font-medium p-2 text-center">
+                    <div
+                      className="text-slate-500"
+                      data-sb-field-path={`certificates.${index}.title`}
+                    >
+                      {certificate.title}
+                    </div>
+                    <div
+                      className="text-slate-800"
+                      data-sb-field-path={`certificates.${index}.date`}
+                    >
+                      {certificate.date}
+                    </div>
+                  </footer>
+                )}
               </article>
             ))}
           </div>
