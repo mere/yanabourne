@@ -57,7 +57,7 @@ export default function Header({ lang }: { lang: Lang }) {
           </nav>
 
           <div className="flex items-center justify-end gap-4">
-            <a href="https://photography.yanabourne.com" className="font-medium text-slate-500 hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Photography</a>
+            <a href="https://photography.yanabourne.com" className="hidden md:flex font-medium text-slate-500 hover:text-blue-600 px-3 lg:px-5 py-2 items-center transition duration-150 ease-in-out">Photography</a>
             <LanguageSelector />
             <MobileMenu lang={lang} />
           </div>

@@ -93,6 +93,9 @@ export default function MobileMenu({ lang }: { lang: Lang }) {
             <li className="border-t border-slate-200 mt-2 pt-2">
               <Link href="/#contact" lang={lang} className="flex font-medium text-slate-800 hover:text-blue-600 py-2" onClick={() => setMobileNavOpen(false)}>Contact</Link>
             </li>
+            <li>
+              <a href="https://photography.yanabourne.com" className="flex font-medium text-slate-800 hover:text-blue-600 py-2">Photography</a>
+            </li>
           </ul>
         </Transition>
       </div>
