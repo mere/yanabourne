@@ -5,7 +5,6 @@ This site is a **static export** (`out/`). The [photography](https://photography
 ## Deploy from this repo
 
 ```bash
-export NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY="your-key"
 export DEPLOY_SSH_KEY="$HOME/.ssh/yanabourne_deploy"
 ./deploy/deploy.sh
 ```
@@ -19,20 +18,28 @@ Override host/path with `DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_PATH` if needed.
 ```caddy
 yanabourne.com {
     root * /srv/yanabourne/main
-    file_server
 
-    # Server-side locale redirect (closer to old Accept-Language middleware; tweak as you like).
-    @root path /
-    redir @root /en 302
+    # Contact API (handler lives outside this repo — reverse_proxy to your service).
+    handle /api/contact {
+        reverse_proxy 127.0.0.1:8080
+    }
 
-    # Static HTML + 404 (Next export: no trailing slash on routes like /en/portfolio/foo).
-    try_files {path} {path}.html {path}/index.html /404.html
+    handle {
+        file_server
+
+        # Server-side locale redirect (closer to old Accept-Language middleware; tweak as you like).
+        @root path /
+        redir @root /en 302
+
+        # Static HTML + 404 (Next export: no trailing slash on routes like /en/portfolio/foo).
+        try_files {path} {path}.html {path}/index.html /404.html
+    }
 
     header {
         X-Content-Type-Options nosniff
         Referrer-Policy strict-origin-when-cross-origin
     }
-    @static path /_next/* /images/* /favicon/*
+    @static path /_next/* /_next-static-images/* /images/* /favicon/*
     header @static Cache-Control "public, max-age=31536000, immutable"
 }
 ```
@@ -43,4 +50,8 @@ Next export uses **no trailing slash** on app routes. Avoid global trailing-slas
 
 ### Contact form
 
-Submissions go to **Web3Forms** (`https://api.web3forms.com/submit`) from the browser. No Caddy config required unless you add a CSP; allow `connect-src https://api.web3forms.com`.
+The static site `POST`s JSON to same-origin `/api/contact`. The handler must:
+
+- Accept `Content-Type: application/json`
+- Return `200` with `{"ok":true}` on success; anything else is treated as failure
+- Receive body fields: `site`, `lang`, `name`, `email`, `phone` (optional; form sends `""` today), `message`, `page`, `website` (honeypot; should be empty)

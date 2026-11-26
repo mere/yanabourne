@@ -6,7 +6,6 @@ Static marketing site for Dr. Yana Bourne — Next.js App Router with `output: '
 
 ```bash
 pnpm install
-export NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY="your-key"  # optional for local form testing
 pnpm dev
 ```
 

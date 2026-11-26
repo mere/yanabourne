@@ -20,12 +20,6 @@ if [[ ! -f "${SSH_KEY}" ]]; then
   exit 1
 fi
 
-if [[ -n "${NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY:-}" ]]; then
-  export NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
-else
-  echo "Warning: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is unset; contact form will not work until set at build time." >&2
-fi
-
 echo "Building static site..."
 pnpm install --frozen-lockfile 2>/dev/null || pnpm install
 pnpm build

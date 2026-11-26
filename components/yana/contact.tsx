@@ -7,7 +7,7 @@ import contactDataEn from "@/content/data/en/contact-section.json";
 import contactDataRu from "@/content/data/ru/contact-section.json";
 import { Lang } from '@/app/[lang]/page'
 
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const CONTACT_ENDPOINT = '/api/contact';
 
 export default function Contact({ lang = 'en' }: { lang?: Lang }) {
   const [status, setStatus] = useState<string | null>(null);
@@ -17,35 +17,41 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    if (!accessKey) {
-      setStatus('error');
-      setError('Contact form is not configured (missing NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY at build time).');
-      return;
-    }
     try {
       setStatus('pending');
       setError(null);
       const myForm = event.target as HTMLFormElement;
       const formData = new FormData(myForm);
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const website = String(formData.get('website') ?? '').trim();
+      if (website) {
+        setStatus('ok');
+        return;
+      }
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: accessKey,
+          site: 'yanabourne.com',
+          lang,
           name: formData.get('name'),
           email: formData.get('email'),
+          phone: '',
           message: formData.get('message'),
-          from_name: 'Yana Bourne website',
-          subject: `Contact form (${lang})`,
+          page: typeof window !== 'undefined' ? window.location.pathname : '',
+          website: '',
         }),
       });
-      const data = await res.json();
-      if (res.ok && data.success) {
+      let data: { ok?: boolean } = {};
+      try {
+        data = await res.json();
+      } catch {
+        data = {};
+      }
+      if (res.status === 200 && data.ok === true) {
         setStatus('ok');
       } else {
         setStatus('error');
-        setError(data.message || `${res.status} ${res.statusText}`);
+        setError(`${res.status} ${res.statusText}`.trim());
       }
     } catch (e) {
       setStatus('error');
@@ -61,7 +67,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           <div className="relative max-w-5xl mx-auto">
-            {/* Grid container */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               {status === 'ok' ? (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
@@ -74,6 +79,15 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                   onSubmit={handleFormSubmit}
                   className="w-full"
                 >
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    defaultValue=""
+                    className="sr-only pointer-events-none absolute h-0 w-0 overflow-hidden p-0 border-0"
+                  />
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
@@ -149,7 +163,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                 </form>
               )}
 
-              {/* Text content */}
               <div>
                 <h2 className="text-4-5xl flex text-slate-100 mb-4 relative">
                   {contactContent.heading}

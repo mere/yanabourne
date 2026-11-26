@@ -45,19 +45,14 @@ Keep **en** and **ru** files in sync structurally; only text (and localized imag
 
 ## Contact form
 
-Uses [Web3Forms](https://web3forms.com) in the browser (`components/yana/contact.tsx`).
+Submits JSON to same-origin **`POST /api/contact`** (`components/yana/contact.tsx`). The API is **not** part of this repo — configure Caddy to `reverse_proxy` to your contact service (see `deploy/README.md`).
 
-1. Create an access key at Web3Forms.
-2. Set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` when building (see `.env.example`).
-3. Submissions are delivered to the email configured in Web3Forms.
-
-The key is embedded in the static JS bundle at build time (standard for client-side forms).
+Expected success response: HTTP `200` with `{"ok":true}`.
 
 ## Build locally
 
 ```bash
 pnpm install
-export NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY="your-key"
 pnpm build
 ```
 
