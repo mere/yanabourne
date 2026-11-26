@@ -33,8 +33,9 @@ Keep **en** and **ru** files in sync structurally; only text (and localized imag
 ## Swap images
 
 1. Replace or add files in `public/images/`.
-2. Update `src` paths in JSON if filenames change.
-3. Rebuild and deploy.
+2. Update `src` paths in JSON if filenames change (use **lowercase** filenames; Linux hosting is case-sensitive).
+3. Run `pnpm verify-images` if you only changed JSON/paths.
+4. Rebuild and deploy (`prebuild` regenerates WebP variants at 640/1080/1920px).
 
 ## Add a new locale
 

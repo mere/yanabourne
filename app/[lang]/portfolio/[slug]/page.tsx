@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
+import StaticImage from '@/components/ui/static-image'
 import Link from 'next/link'
 import Gallery from '@/components/yana/gallery'
 import dataEn from '@/content/data/en/portfolioItems.json'
@@ -72,13 +72,14 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
 
               {/* Main image */}
               <div className="mb-8">
-                <Image 
+                <StaticImage 
                   className="w-full rounded-xl" 
                   src={portfolio.image}
                   width={800}
                   height={400}
                   alt={portfolio.title}
                   priority
+                  sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
 

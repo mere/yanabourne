@@ -2,7 +2,7 @@
 
 import Logo from "../ui/logo";
 import { useState } from "react";
-import Image from "next/image";
+import StaticImage from "@/components/ui/static-image";
 import contactDataEn from "@/content/data/en/contact-section.json";
 import contactDataRu from "@/content/data/ru/contact-section.json";
 import { Lang } from '@/app/[lang]/page'
@@ -164,12 +164,13 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                   {contactContent.description}
                 </p>
                 <div className="relative w-42 h-42 mx-auto my-4">
-                  <Image 
+                  <StaticImage 
                     src={contactContent.image.src}
                     alt={contactContent.image.alt}
                     width={contactContent.image.width}
                     height={contactContent.image.height}
                     className="rounded-full object-cover w-full h-full border-4 border-slate-600"
+                    sizes="168px"
                   />
                   <Logo
                     lang={lang}

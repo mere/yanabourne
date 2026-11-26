@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import microscope from "@/public/images/yana/microscope.jpg";
+import StaticImage from "@/components/ui/static-image";
 import contentEn from "@/content/data/en/home.json";
 import contentRu from "@/content/data/ru/home.json";
 import { Lang } from '@/app/[lang]/page'
@@ -67,11 +66,13 @@ export default function FeaturesHome({ lang }: { lang: Lang }) {
                 ></div>
 
                 <div className="min-w-[300px] min-h-[250px] bg-slate-300 rounded-lg">
-                  <Image
-                    src={microscope}
+                  <StaticImage
+                    src="/images/yana/microscope.jpg"
                     alt="Microscope"
                     className="rounded-lg min-w-[300px] min-h-[250px]"
                     width={300}
+                    height={250}
+                    sizes="300px"
                   />
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import StaticImage from "@/components/ui/static-image";
 import heroContentEn from "@/content/data/en/hero-section.json";
 import heroContentRu from "@/content/data/ru/hero-section.json";
 import { Lang } from "@/app/[lang]/page";
@@ -47,13 +47,14 @@ export default function HeroHome({ lang }: { lang: Lang }) {
 
             {/* Hero image */}
             <div className="flex justify-center" data-aos="fade-left">
-              <Image
+              <StaticImage
                 className="mx-auto"
                 src={data.image.src}
                 width={data.image.width}
                 height={data.image.height}
                 priority
                 alt={data.image.alt}
+                sizes="(max-width: 768px) 100vw, 576px"
               />
             </div>
           </div>

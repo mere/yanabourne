@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/verify-content-images.mjs && node scripts/generate-responsive-images.mjs",
+    "predev": "node scripts/verify-content-images.mjs && node scripts/generate-responsive-images.mjs",
     "build": "next build",
+    "verify-images": "node scripts/verify-content-images.mjs",
     "lint": "next lint",
     "export": "next build"
   },
@@ -33,6 +36,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/aos": "^3.0.7",
     "postcss": "^8.5.1",
+    "sharp": "^0.33.5",
     "tailwindcss": "^4.0.3"
   },
   "packageManager": "pnpm@10.2.0+sha512.0d27364e0139c6aadeed65ada153135e0ca96c8da42123bd50047f961339dc7a758fc2e944b428f52be570d1bd3372455c1c65fa2e7aa0bfbf931190f9552001"

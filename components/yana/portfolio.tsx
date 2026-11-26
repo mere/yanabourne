@@ -1,4 +1,4 @@
-import Image from "next/image";
+import StaticImage from "@/components/ui/static-image";
 import portfolioDataEn from "@/content/data/en/portfolio-section.json"; 
 import portfolioDataRu from "@/content/data/ru/portfolio-section.json";
 import { Lang } from '@/app/[lang]/page'
@@ -44,12 +44,13 @@ export default function Portfolio({ lang }: { lang: Lang }) {
                     ></div>
 
                     <div className="relative overflow-hidden rounded-lg">
-                      <Image
+                      <StaticImage
                         src={item.image.src}
                         alt={item.image.alt}
                         width={item.image.width}
                         height={item.image.height}
                         className="w-full h-auto transform group-hover:scale-105 transition duration-700 ease-out"
+                        sizes="(max-width: 768px) 100vw, 360px"
                       />
                       <div className="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-40 transition duration-700 ease-out" />
                     </div>
