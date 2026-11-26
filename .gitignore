@@ -37,5 +37,8 @@ yarn-error.log*
 next-env.d.ts
 
 **/_local
-
-.stackbit/cache
+public/_next-static-images/
+.env
+.env.local
+deploy/*.pem
+deploy/id_*

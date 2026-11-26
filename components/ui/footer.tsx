@@ -21,16 +21,16 @@ export default function Footer({ lang }: FooterProps) {
   };
 
   return (
-    <footer lang={lang} data-sb-object-id={`content/data/${lang}/footer-section.json`}>
+    <footer lang={lang}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Bottom area */}
         <div className="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-slate-200">
 
           {/* Social links */}
-          <ul className="flex space-x-6 mb-4 md:order-1 md:ml-4 md:mb-0" data-sb-field-path="socialLinks">
+          <ul className="flex space-x-6 mb-4 md:order-1 md:ml-4 md:mb-0">
             {footerData.socialLinks.map((link, index) => (
-              <li key={index} data-sb-field-path={`socialLinks.${index}`}>
+              <li key={index}>
                 <a className="text-blue-500 hover:text-blue-600 transition duration-150 ease-in-out" href={link.href} aria-label={link.ariaLabel}>
                   <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d={index === 0 ? svgPaths.telegram : svgPaths.email} />
@@ -42,7 +42,7 @@ export default function Footer({ lang }: FooterProps) {
 
           {/* Copyrights note */}
           <Logo lang={lang} />
-          <div className="text-sm text-slate-500 mr-4" data-sb-field-path="copyrightText">
+          <div className="text-sm text-slate-500 mr-4">
             {footerData.copyrightText}
           </div>
 

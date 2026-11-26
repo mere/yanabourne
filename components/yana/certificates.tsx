@@ -1,4 +1,4 @@
-import Image from "next/image";
+import StaticImage from "@/components/ui/static-image";
 import { Link } from "@/components/utils/link";
 import { Lang } from "@/app/[lang]/page";
 import certificatesDataEn from "@/content/data/en/certificates-section.json";
@@ -31,32 +31,30 @@ export default function Certificates({ lang }: { lang: Lang }) {
                 }`}
                 data-aos="fade-up"
                 data-aos-anchor="[data-aos-id-testimonials]"
-                data-sb-field-path={`certificates.${index}`}
               >
                 <a
                   href={certificate.src}
                   className="lightbox"
                   data-group="certificates"
                 >
-                  <Image
+                  <StaticImage
                     src={certificate.src}
                     alt={certificate.title}
                     className="w-full h-auto"
                     width={300}
                     height={100}
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 33vw, 280px"
                   />
                 </a>
                 {(certificate.title || certificate.date) && (
                   <footer className="text-sm font-medium p-2 text-center">
                     <div
                       className="text-slate-500"
-                      data-sb-field-path={`certificates.${index}.title`}
                     >
                       {certificate.title}
                     </div>
                     <div
                       className="text-slate-800"
-                      data-sb-field-path={`certificates.${index}.date`}
                     >
                       {certificate.date}
                     </div>

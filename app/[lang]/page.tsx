@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Yana Bourne',
-  description: 'dental therapist, general dentist, and endodontist.',
-}
-
+import { homeMetadata } from '@/lib/site-metadata'
 import Hero from '@/components/yana/hero-home'
 import Features from '@/components/yana/features-home'
 import Contact from '@/components/yana/contact'
@@ -12,7 +8,13 @@ import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
 import Certificates from '@/components/yana/certificates'
 
+export const metadata = homeMetadata
+
 export type Lang = 'ru' | 'en';
+
+export function generateStaticParams() {
+  return [{ lang: 'en' as const }, { lang: 'ru' as const }];
+}
 
 export default async function Home({ params }: { params: Promise<{ lang: Lang }> }) {
   const lang = (await params).lang;

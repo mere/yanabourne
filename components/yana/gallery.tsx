@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image';
+import StaticImage from '@/components/ui/static-image';
 import { Link } from '@/components/utils/link'
 import { Lang } from '@/app/[lang]/page'
 import galleryDataEn from "@/content/data/en/gallery-section.json";
@@ -36,15 +36,15 @@ export default function Gallery({
                 key={item.id} 
                 className="break-inside-avoid"
                 data-aos="fade-up"
-                data-sb-field-path={`${fieldPath}.images.${index}`}
               >
                 <div className="relative group overflow-hidden rounded-lg">
-                  <Image
+                  <StaticImage
                     src={item.src}
                     alt={`Portfolio item ${item.id}`}
                     width={item.width}
                     height={item.height}
                     className="w-full h-auto transform group-hover:scale-105 transition duration-700 ease-out"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                   />
                 </div>
               </div>

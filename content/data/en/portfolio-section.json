@@ -6,7 +6,7 @@
       "title": "Complex Endodontic Procedures",
       "description": "I specialise in complex endodontic procedures, including root canal treatments and retreatement.",
       "image": {
-        "src": "/images/portfolio/IMG_8680.jpg",
+        "src": "/images/portfolio/img_8680.jpg",
         "alt": "Complex Endodontic Procedures",
         "width": 500,
         "height": 300
@@ -17,7 +17,7 @@
       "title": "Advanced Restorative Techniques",
       "description": "I specialise in advanced restorative techniques, including dental implants and full mouth rehabilitation.",
       "image": {
-        "src": "/images/portfolio/DSC_4233.JPG",
+        "src": "/images/portfolio/dsc_4233.jpg",
         "alt": "Advanced Restorative Techniques",
         "width": 500,
         "height": 300
@@ -28,13 +28,12 @@
       "title": "Minimally Invasive Dental Treatments",
       "description": "I specialise in minimally invasive dentistry, including tooth-saving techniques and conservative restorative options.",
       "image": {
-        "src": "/images/portfolio/IMG_8413.jpg",
+        "src": "/images/portfolio/img_8413.jpg",
         "alt": "Minimally invasive dental treatment",
         "width": 500,
         "height": 300
       },
       "link": "/portfolio/minimally-invasive-dental-treatments"
     }
-  ],
-  "stackbit_model_type": "PortfolioSection"
-} 
+  ]
+}

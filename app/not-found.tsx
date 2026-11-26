@@ -1,6 +1,11 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
+
+export const metadata: Metadata = {
+  title: 'Page not found',
+}
 
 export default function NotFound() {
   return (
@@ -26,7 +31,7 @@ export default function NotFound() {
               </div>
               <p className="text-xl text-slate-500">We couldn't find the page you're looking for.</p>
               <div className="mt-8">
-                <Link className="btn text-white bg-blue-600 hover:bg-blue-700" href="/">Back Home</Link>
+                <Link className="btn text-white bg-blue-600 hover:bg-blue-700" href="/en">Back Home</Link>
               </div>
             </div>
           </div>

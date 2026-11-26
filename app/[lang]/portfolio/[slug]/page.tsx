@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
+import StaticImage from '@/components/ui/static-image'
 import Link from 'next/link'
 import Gallery from '@/components/yana/gallery'
 import dataEn from '@/content/data/en/portfolioItems.json'
@@ -9,9 +9,22 @@ import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
 
 
+import { siteDescription } from '@/lib/site-metadata'
+
 export const metadata = {
-  title: 'Portfolio Details',
-  description: 'Detailed view of portfolio',
+  title: 'Portfolio',
+  description: siteDescription,
+}
+
+export function generateStaticParams() {
+  const langs = ['en', 'ru'] as const
+  const slugs = Array.from(
+    new Set([
+      ...dataEn.items.map((item) => item.slug),
+      ...dataRu.items.map((item) => item.slug),
+    ])
+  )
+  return langs.flatMap((lang) => slugs.map((slug) => ({ lang, slug })))
 }
 
 // This would need to be replaced with actual data fetching
@@ -33,7 +46,7 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
   const fieldPath = `items.${itemIndex}`;
 
   return (
-    <section className="relative" data-sb-object-id={`content/data/${lang}/portfolioItems.json`}>
+    <section className="relative">
       <Header lang={lang} />
       <div className="absolute inset-0 bg-slate-900 pointer-events-none -z-10 mb-36 lg:mb-0 lg:h-[48rem] [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]" aria-hidden="true"></div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -52,27 +65,27 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
                   </Link>
                 </div>
                 
-                <h1 className="h2 text-slate-200 mb-4" data-sb-field-path={`${fieldPath}.title`}>
+                <h1 className="h2 text-slate-200 mb-4">
                   {portfolio.title}
                 </h1>
               </header>
 
               {/* Main image */}
               <div className="mb-8">
-                <Image 
+                <StaticImage 
                   className="w-full rounded-xl" 
                   src={portfolio.image}
                   width={800}
                   height={400}
                   alt={portfolio.title}
                   priority
-                  data-sb-field-path={`${fieldPath}.image`}
+                  sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
 
               {/* Content */}
               <div className="text-lg text-slate-500 space-y-8">
-                <p data-sb-field-path={`${fieldPath}.description`}>
+                <p>
                   {portfolio.description}
                 </p>
               </div>
