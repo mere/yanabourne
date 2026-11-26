@@ -1,6 +1,11 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
+
+export const metadata: Metadata = {
+  title: 'Page not found',
+}
 
 export default function NotFound() {
   return (

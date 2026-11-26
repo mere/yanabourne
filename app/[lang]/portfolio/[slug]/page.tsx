@@ -9,9 +9,11 @@ import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
 
 
+import { siteDescription } from '@/lib/site-metadata'
+
 export const metadata = {
-  title: 'Portfolio Details',
-  description: 'Detailed view of portfolio',
+  title: 'Portfolio',
+  description: siteDescription,
 }
 
 export function generateStaticParams() {
