@@ -14,6 +14,10 @@ import Certificates from '@/components/yana/certificates'
 
 export type Lang = 'ru' | 'en';
 
+export function generateStaticParams() {
+  return [{ lang: 'en' as const }, { lang: 'ru' as const }];
+}
+
 export default async function Home({ params }: { params: Promise<{ lang: Lang }> }) {
   const lang = (await params).lang;
   

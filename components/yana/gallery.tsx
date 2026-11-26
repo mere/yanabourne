@@ -36,7 +36,6 @@ export default function Gallery({
                 key={item.id} 
                 className="break-inside-avoid"
                 data-aos="fade-up"
-                data-sb-field-path={`${fieldPath}.images.${index}`}
               >
                 <div className="relative group overflow-hidden rounded-lg">
                   <Image

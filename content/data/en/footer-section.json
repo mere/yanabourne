@@ -1,15 +1,14 @@
 {
   "type": "FooterSection",
-  "stackbit_model_type": "FooterSection",
-    "socialLinks": [
-      {
-        "href": "https://t.me/yana_bourne",
-        "ariaLabel": "Telegram"
-      },
-      {
-        "href": "mailto:website@yanabourne.com",
-        "ariaLabel": "Email"
-      }
-    ],
-    "copyrightText": "© yanabourne.com. All rights reserved."
-  }
+  "socialLinks": [
+    {
+      "href": "https://t.me/yana_bourne",
+      "ariaLabel": "Telegram"
+    },
+    {
+      "href": "mailto:website@yanabourne.com",
+      "ariaLabel": "Email"
+    }
+  ],
+  "copyrightText": "© yanabourne.com. All rights reserved."
+}

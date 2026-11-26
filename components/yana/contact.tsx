@@ -5,8 +5,9 @@ import { useState } from "react";
 import Image from "next/image";
 import contactDataEn from "@/content/data/en/contact-section.json";
 import contactDataRu from "@/content/data/ru/contact-section.json";
-import { Link } from '@/components/utils/link'
 import { Lang } from '@/app/[lang]/page'
+
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 export default function Contact({ lang = 'en' }: { lang?: Lang }) {
   const [status, setStatus] = useState<string | null>(null);
@@ -16,21 +17,35 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setStatus('error');
+      setError('Contact form is not configured (missing NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY at build time).');
+      return;
+    }
     try {
       setStatus('pending');
       setError(null);
       const myForm = event.target as HTMLFormElement;
       const formData = new FormData(myForm);
-      const res = await fetch('/__forms.html', {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString()
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+          from_name: 'Yana Bourne website',
+          subject: `Contact form (${lang})`,
+        }),
       });
-      if (res.status === 200) {
+      const data = await res.json();
+      if (res.ok && data.success) {
         setStatus('ok');
       } else {
         setStatus('error');
-        setError(`${res.status} ${res.statusText}`);
+        setError(data.message || `${res.status} ${res.statusText}`);
       }
     } catch (e) {
       setStatus('error');
@@ -41,8 +56,7 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
   return (
     <section 
       className="bg-slate-900" 
-      id="contact" 
-      data-sb-object-id={`content/data/${lang}/contact-section.json`}
+      id="contact"
     >
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
@@ -51,8 +65,8 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               {status === 'ok' ? (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-                  <h3 className="font-bold" data-sb-field-path="form.successMessage.title">{contactContent.form.successMessage.title}</h3>
-                  <p data-sb-field-path="form.successMessage.description">{contactContent.form.successMessage.description}</p>
+                  <h3 className="font-bold">{contactContent.form.successMessage.title}</h3>
+                  <p>{contactContent.form.successMessage.description}</p>
                 </div>
               ) : (
                 <form 
@@ -60,13 +74,11 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                   onSubmit={handleFormSubmit}
                   className="w-full"
                 >
-                  <input type="hidden" name="form-name" value="contact-form" />
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
                         className="block text-left text-slate-300 text-sm font-medium mb-1"
                         htmlFor="name"
-                        data-sb-field-path="form.name.label"
                       >
                         {contactContent.form.name.label} <span className="text-red-600">*</span>
                       </label>
@@ -77,7 +89,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                         className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
                         placeholder={contactContent.form.name.placeholder}
                         required={contactContent.form.name.required}
-                        data-sb-field-path="form.name.placeholder"
                       />
                     </div>
                   </div>
@@ -86,7 +97,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                       <label
                         className="block text-left text-slate-300 text-sm font-medium mb-1"
                         htmlFor="email"
-                        data-sb-field-path="form.email.label"
                       >
                         {contactContent.form.email.label} <span className="text-red-600">*</span>
                       </label>
@@ -97,7 +107,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                         className="form-input w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
                         placeholder={contactContent.form.email.placeholder}
                         required={contactContent.form.email.required}
-                        data-sb-field-path="form.email.placeholder"
                       />
                     </div>
                   </div>
@@ -106,7 +115,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                       <label
                         className="block text-left text-slate-300 text-sm font-medium mb-1"
                         htmlFor="message"
-                        data-sb-field-path="form.message.label"
                       >
                         {contactContent.form.message.label} <span className="text-red-600">*</span>
                       </label>
@@ -117,7 +125,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                         className="form-textarea w-full bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-sm px-4 py-3 text-white placeholder-slate-500"
                         placeholder={contactContent.form.message.placeholder}
                         required={contactContent.form.message.required}
-                        data-sb-field-path="form.message.placeholder"
                       ></textarea>
                     </div>
                   </div>
@@ -134,9 +141,9 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                   </div>
                   
                   {status === 'error' && (
-                    <div className="mt-4 text-red-500 text-sm" data-sb-field-path="form.errorMessage">
+                    <div className="mt-4 text-red-500 text-sm">
                       {contactContent.form.errorMessage}
-                      
+                      {error ? <span className="block mt-1 text-red-400">{error}</span> : null}
                     </div>
                   )}
                 </form>
@@ -144,7 +151,7 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
 
               {/* Text content */}
               <div>
-                <h2 className="text-4-5xl flex text-slate-100 mb-4 relative" data-sb-field-path="heading">
+                <h2 className="text-4-5xl flex text-slate-100 mb-4 relative">
                   {contactContent.heading}
                   <div className="fill-slate-300 -mt-5 hidden lg:block" aria-hidden="true">
                     <svg className="fill-slate-600" width="56" height="43">
@@ -153,7 +160,7 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                   </div>
                 </h2>
 
-                <p className="text-xl text-slate-400" data-sb-field-path="description">
+                <p className="text-xl text-slate-400">
                   {contactContent.description}
                 </p>
                 <div className="relative w-42 h-42 mx-auto my-4">
@@ -163,7 +170,6 @@ export default function Contact({ lang = 'en' }: { lang?: Lang }) {
                     width={contactContent.image.width}
                     height={contactContent.image.height}
                     className="rounded-full object-cover w-full h-full border-4 border-slate-600"
-                    data-sb-field-path="image"
                   />
                   <Logo
                     lang={lang}

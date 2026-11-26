@@ -2,22 +2,25 @@
 
 import { FC, useEffect } from 'react';
 
-// @ts-ignore
-import Parvus from 'parvus';
-
 interface LightBoxHelperProps {
   selector?: string;
 }
 
 const LightBoxHelper: FC<LightBoxHelperProps> = ({ selector = '.lightbox' }) => {
   useEffect(() => {
-    const lightbox = new Parvus({
-      selector: selector,
-      zoomIndicator: false
-    });
+    let lightbox: { destroy: () => void } | undefined;
+
+    import('parvus')
+      .then(({ default: Parvus }) => {
+        lightbox = new Parvus({
+          selector,
+          zoomIndicator: false,
+        });
+      })
+      .catch(console.error);
 
     return () => {
-      lightbox.destroy();
+      lightbox?.destroy();
     };
   }, [selector]);
 
@@ -25,4 +28,3 @@ const LightBoxHelper: FC<LightBoxHelperProps> = ({ selector = '.lightbox' }) => 
 };
 
 export default LightBoxHelper;
-

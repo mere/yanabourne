@@ -31,7 +31,6 @@ export default function Certificates({ lang }: { lang: Lang }) {
                 }`}
                 data-aos="fade-up"
                 data-aos-anchor="[data-aos-id-testimonials]"
-                data-sb-field-path={`certificates.${index}`}
               >
                 <a
                   href={certificate.src}
@@ -50,13 +49,11 @@ export default function Certificates({ lang }: { lang: Lang }) {
                   <footer className="text-sm font-medium p-2 text-center">
                     <div
                       className="text-slate-500"
-                      data-sb-field-path={`certificates.${index}.title`}
                     >
                       {certificate.title}
                     </div>
                     <div
                       className="text-slate-800"
-                      data-sb-field-path={`certificates.${index}.date`}
                     >
                       {certificate.date}
                     </div>

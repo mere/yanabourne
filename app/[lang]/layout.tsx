@@ -1,30 +1,31 @@
-"use client";
+import type { Metadata } from "next";
+import LocaleShell from "@/components/layouts/locale-shell";
+import LangAttribute from "@/components/layouts/lang-attribute";
 
-import { useEffect } from "react";
+export const metadata: Metadata = {
+  title: "Yana Bourne",
+  description: "dental therapist, general dentist, and endodontist.",
+};
 
-import AOS from "aos";
-import "aos/dist/aos.css";
+const locales = ["en", "ru"] as const;
 
-import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer";
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
 
-export default function DefaultLayout({
+export default async function LangLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }) {
-  useEffect(() => {
-    AOS.init({
-      once: true,
-      disable: "phone",
-      duration: 600,
-      easing: "ease-out-sine",
-    });
-  });
+  const { lang } = await params;
 
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
-      <main className="grow">{children}</main>
-    </div>
+    <>
+      <LangAttribute lang={lang} />
+      <LocaleShell>{children}</LocaleShell>
+    </>
   );
 }

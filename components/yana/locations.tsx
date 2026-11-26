@@ -8,9 +8,9 @@ export default function Locations({ lang }: { lang: Lang }) {
   const data = lang === 'ru' ? locationsDataRu : locationsDataEn;
 
   return (
-    <section className="bg-slate-100" id="locations" data-sb-object-id={`content/data/${lang}/locations-section.json`}>
+    <section className="bg-slate-100" id="locations">
       <div className="max-w-3xl mx-auto text-center pt-24 mb-6">
-        <h2 className="h2 font-playfair-display text-slate-800" data-sb-field-path="heading">{data.heading}</h2>
+        <h2 className="h2 font-playfair-display text-slate-800">{data.heading}</h2>
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
@@ -23,7 +23,6 @@ export default function Locations({ lang }: { lang: Lang }) {
                 className="h-full flex flex-col items-center text-center"
                 data-aos="fade-up"
                 data-aos-delay={index === 0 ? 300 : 100}
-                data-sb-field-path={`locations.${index}`}
               >
                 <div className="inline-flex w-[62px] h-[62px] mb-4">
                   <Image
@@ -32,21 +31,20 @@ export default function Locations({ lang }: { lang: Lang }) {
                     width={62}
                     height={62}
                     className="fill-blue-600"
-                    data-sb-field-path=".icon"
                   />
                 </div>
-                <h4 className="h4 font-playfair-display text-slate-800 mb-2" data-sb-field-path=".city">
+                <h4 className="h4 font-playfair-display text-slate-800 mb-2">
                   {location.city}
                 </h4>
-                <div className="font-sm font-medium text-slate-800" data-sb-field-path=".role">
+                <div className="font-sm font-medium text-slate-800">
                   {location.role}
                 </div>
-                <div className="font-sm font-medium text-slate-600 mb-4" data-sb-field-path=".experience">
+                <div className="font-sm font-medium text-slate-600 mb-4">
                   {location.experience}
                 </div>
                 <div className="grow text-slate-500 mb-2">
                   {location.description.map((paragraph, pIndex) => (
-                    <p key={pIndex} data-sb-field-path={`.description.${pIndex}`}>
+                    <p key={pIndex}>
                       {paragraph}
                       {pIndex < location.description.length - 1 && <br />}
                       <br />

@@ -12,7 +12,7 @@ export default function FeaturesHome({ lang }: { lang: Lang }) {
   const content = lang === 'ru' ? contentRu : contentEn;
 
   return (
-    <section className="relative" id="about" data-sb-object-id={`content/data/${lang}/home.json`}>
+    <section className="relative" id="about">
       <div
         className="absolute inset-0  pointer-events-none mb-64 md:mb-80"
         aria-hidden="true"
@@ -24,13 +24,11 @@ export default function FeaturesHome({ lang }: { lang: Lang }) {
           <div className="max-w-3xl mx-auto text-center pb-12">
             <h2 
               className="h2 font-playfair-display text-slate-600 mb-4"
-              data-sb-field-path="header.title"
             >
               {content.header.title}
             </h2>
             <p 
               className="text-xl text-slate-700"
-              data-sb-field-path="header.introduction"
             >
               {content.header.introduction}
             </p>
@@ -44,7 +42,6 @@ export default function FeaturesHome({ lang }: { lang: Lang }) {
             <div className="" data-aos="fade-left">
               <h2 
                 className="h3 md:text-4xl font-playfair-display mb-4"
-                data-sb-field-path="story.title"
               >
                 {content.story.title}
               </h2>
@@ -52,7 +49,6 @@ export default function FeaturesHome({ lang }: { lang: Lang }) {
                 <p 
                   key={index}
                   className={`text-lg text-slate-700 ${index > 0 ? 'mt-4' : ''}`}
-                  data-sb-field-path={`story.content[${index}]`}
                 >
                   {paragraph}
                 </p>

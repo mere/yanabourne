@@ -14,6 +14,17 @@ export const metadata = {
   description: 'Detailed view of portfolio',
 }
 
+export function generateStaticParams() {
+  const langs = ['en', 'ru'] as const
+  const slugs = Array.from(
+    new Set([
+      ...dataEn.items.map((item) => item.slug),
+      ...dataRu.items.map((item) => item.slug),
+    ])
+  )
+  return langs.flatMap((lang) => slugs.map((slug) => ({ lang, slug })))
+}
+
 // This would need to be replaced with actual data fetching
 async function getPortfolioItem(slug: string, data: typeof dataEn | typeof dataRu) {
   const portfolioItems = data.items
@@ -33,7 +44,7 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
   const fieldPath = `items.${itemIndex}`;
 
   return (
-    <section className="relative" data-sb-object-id={`content/data/${lang}/portfolioItems.json`}>
+    <section className="relative">
       <Header lang={lang} />
       <div className="absolute inset-0 bg-slate-900 pointer-events-none -z-10 mb-36 lg:mb-0 lg:h-[48rem] [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]" aria-hidden="true"></div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -52,7 +63,7 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
                   </Link>
                 </div>
                 
-                <h1 className="h2 text-slate-200 mb-4" data-sb-field-path={`${fieldPath}.title`}>
+                <h1 className="h2 text-slate-200 mb-4">
                   {portfolio.title}
                 </h1>
               </header>
@@ -66,13 +77,12 @@ export default async function PortfolioPost({ params }: { params: Promise<{ lang
                   height={400}
                   alt={portfolio.title}
                   priority
-                  data-sb-field-path={`${fieldPath}.image`}
                 />
               </div>
 
               {/* Content */}
               <div className="text-lg text-slate-500 space-y-8">
-                <p data-sb-field-path={`${fieldPath}.description`}>
+                <p>
                   {portfolio.description}
                 </p>
               </div>

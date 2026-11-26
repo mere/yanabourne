@@ -1,5 +1,3 @@
-
-import { useState } from "react";
 import Image from "next/image";
 import portfolioDataEn from "@/content/data/en/portfolio-section.json"; 
 import portfolioDataRu from "@/content/data/ru/portfolio-section.json";
@@ -10,7 +8,7 @@ export default function Portfolio({ lang }: { lang: Lang }) {
   
   const portfolioData = lang === 'ru' ? portfolioDataRu : portfolioDataEn;
   return (
-    <section className="relative" id="portfolio" data-sb-object-id={`content/data/${lang}/portfolio-section.json`}>
+    <section className="relative" id="portfolio">
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
@@ -20,7 +18,7 @@ export default function Portfolio({ lang }: { lang: Lang }) {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12">
-            <h2 className="h2 font-playfair-display text-slate-800 mb-4" data-sb-field-path="heading">
+            <h2 className="h2 font-playfair-display text-slate-800 mb-4">
               {portfolioData.heading}
             </h2>
           </div>
@@ -33,7 +31,6 @@ export default function Portfolio({ lang }: { lang: Lang }) {
                 href={item.link}
                 lang={lang}
                 className="group cursor-pointer h-full"
-                data-sb-field-path={`items.${index}`}
               >
                 <article
                   className="flex flex-col h-full"
@@ -53,17 +50,16 @@ export default function Portfolio({ lang }: { lang: Lang }) {
                         width={item.image.width}
                         height={item.image.height}
                         className="w-full h-auto transform group-hover:scale-105 transition duration-700 ease-out"
-                        data-sb-field-path=".image"
                       />
                       <div className="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-40 transition duration-700 ease-out" />
                     </div>
                   </div>
 
                   <div className="flex flex-col h-full">
-                    <h3 className="h4 font-playfair-display mb-4 text-center min-h-16" data-sb-field-path=".title">
+                    <h3 className="h4 font-playfair-display mb-4 text-center min-h-16">
                       {item.title}
                     </h3>
-                    <p className="text-lg text-slate-500 text-center mb-6" data-sb-field-path=".description">
+                    <p className="text-lg text-slate-500 text-center mb-6">
                       {item.description}
                     </p>
                     <div className="mt-auto flex justify-center">
